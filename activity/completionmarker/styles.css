@@ -1,0 +1,34 @@
+.activity.completionmarker .togglecompletion {
+    display: none;
+}
+
+.activity.completionmarker a.mark {
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: #0095db;
+    background-color: transparent;
+    box-sizing: border-box;
+    display: inline-block;
+    font-size: 14px;
+}
+
+.activity.completionmarker .custom-content {
+    text-align: center;
+}
+
+.activity.completionmarker .main-content {
+    background-color: inherit;
+}
+
+.activity.completionmarker .completionmarker-icon {
+    font-size:1.5em;
+}
+
+.activity.completionmarker .contentwithoutlink  {
+    text-align: center;
+}
+
+.activity.completionmarker .main-content .contentafterlink a:visited,
+.activity.completionmarker .main-content .contentwithoutlink a:visited {
+    color: #0095db;
+}
