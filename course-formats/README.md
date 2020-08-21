@@ -1,5 +1,5 @@
 
-# Plugins des formats de cours m@gistère en marque blanche
+# Formats de cours m@gistère en marque blanche
 
  1. Généralités
 
