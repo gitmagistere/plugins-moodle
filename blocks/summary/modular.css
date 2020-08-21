@@ -1,0 +1,55 @@
+.section-part {
+    border: 3px dashed grey;
+    margin-bottom: 15px;
+    padding: 5px;
+    padding-bottom: 30px;
+}
+
+.section-part p {
+    text-align: right;
+}
+
+.section-part[data-type='module']::after{
+    content: 'Sections considérées comme module';
+    float: right;
+}
+
+.section-part[data-type='intro']::after,
+.section-part[data-type='end']::after{
+    content: 'Sections non considérées comme module';
+    float: right;
+}
+
+.dd-empty {
+    background: none;
+    min-height: 0;
+    height: 33px;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.hascontent {
+    background: url('pix/hascontent.png') no-repeat center center;
+    background-size: 20px;
+    height: 20px;
+    width: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.hascontent:hover {
+    background: url('pix/hascontent.png') no-repeat center center;
+    background-size: 20px;
+}
+
+.nocontent {
+    background: url('pix/nocontent.png') no-repeat center center;
+    background-size: 20px;
+}
+
+.nocontent:hover {
+    background: url('pix/nocontent.png') no-repeat center center;
+    background-size: 20px;
+}

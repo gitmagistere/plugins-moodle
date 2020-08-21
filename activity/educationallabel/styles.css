@@ -1,0 +1,114 @@
+.display_none_educationalbloc{
+	display:block;
+}
+
+
+/* TYPE 1 PRESENTATION DE VOTRE FORMATION*/
+.modtype_educationallabel_type1 div h5.type-title {
+	color:#9a5bb6 !important;
+}
+
+.modtype_educationallabel_type1 div.mod-indent-outer > div, .modtype_educationallabel_type1 > div {
+	background-color: #f5edf8 !important;
+}
+
+/* TYPE 2 COMMENT REUSSIR VOTRE FORMATION */
+.modtype_educationallabel_type2 div.mod-indent-outer > div, .modtype_educationallabel_type2 > div {
+	background-color: #fbf3e8 !important;
+}
+
+.modtype_educationallabel_type2 div h5.type-title {
+	color:#e07d00 !important;
+}
+
+/* TYPE 3 ACTIVITE A REALISER*/
+.modtype_educationallabel_type3 div h5.type-title {
+	color:#3597e2 !important;
+}
+
+.modtype_educationallabel_type3 div.mod-indent-outer > div, .modtype_educationallabel_type3 > div {
+	background-color: #e6f5fc !important;
+}
+
+/* TYPE 4 NOTE AUX FORMATEURS */
+.modtype_educationallabel_type4 div h5.type-title {
+	color:#40bd9b !important;
+}
+
+.modtype_educationallabel_type4 div.mod-indent-outer > div, .modtype_educationallabel_type4 > div {
+	background-color: #e9f8f5 !important;
+}
+
+/* TYPE 5 IMPORTANT */
+.modtype_educationallabel_type5 div h5.type-title {
+	color:#cb303e !important;
+}
+
+.modtype_educationallabel_type5 div.mod-indent-outer > div, .modtype_educationallabel_type5 > div {
+	background-color: #fcf0f2 !important;
+}
+
+.educationallabel div .contentwithoutlink {
+	padding: 10px 15px !important;
+}
+
+.modtype_educationallabel_type1 div h5.type-title,
+.modtype_educationallabel_type2 div h5.type-title,
+.modtype_educationallabel_type3 div h5.type-title,
+.modtype_educationallabel_type4 div h5.type-title,
+.modtype_educationallabel_type5 div h5.type-title {
+	margin: 0;
+	font-weight: bold;
+}
+
+
+
+/* ----------------------------------------------------------------------------------- */
+
+
+
+/* REGLE GENERAL DES BLOCS PEDAGOGIQUE */
+.modtype_educationallabel .header .title .block_action {
+	display:none;
+}
+
+.modtype_educationallabel .header .title .commands {
+	border:none;
+	/*background: none !important;*/
+}
+
+/*.block_educationalbloc .content p {
+	margin: 0;
+}*/
+
+.modtype_educationallabel .header .title h2 {
+	font-weight: bold !important;
+	margin:0 !important;
+	width:auto !important;
+	padding: 10px 0 0 0 !important;
+	text-align: left !important;
+}
+
+.modtype_educationallabel.block_with_controls .header .title h2{
+	padding: 35px 0 3px !important;
+	text-align: left !important;
+}
+
+.modtype_educationallabel .header .title{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.modtype_educationallabel.block .header {
+	background-image: none !important;
+}
+
+#region-post .modtype_educationallabel .actionmenu{
+	background-image: url([[pix:t/edit_menu]]);
+}
+
+#region-post .modtype_educationallabel.block .content,
+.modtype_educationallabel.block .content {
+	padding:0 10px !important;
+	border:none !important;
+}
