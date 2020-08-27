@@ -4,6 +4,7 @@ Le module marqueur d'avancemnt permet de placer des marqueurs sur les différent
 • modification de l'affichage de "Marquer cette étape comme terminée" à "Etape terminée"
 • ajout d'une coche dans le bloc Sommaire (summary) si celui-ci est installé
 
+Cette activité a été validée pour la version 3.5 de Moodle. Son fonctionnement est expérimental sur les versions ultérieures.
 
 Installation
 ============
