@@ -1,7 +1,7 @@
 Format Modulaire
 ============================
 Attention ! Le format modulaire a une dépendance direct avec le block Sommaire. Si le plugin du block Sommaire n'est pas présent sur le Moodle en question, des effets de bord peuvent apparaître.
-Fonctionnalité du format :
+Fonctionnalités du format :
 * A la création d’un nouveau cours au format modulaire, celui-ci comportera : 1 page d’introduction, 2 modules vierges sans sous-section, 1 page de conclusion, 1 page formateur. 
 * Les utilisateurs arrivent sur le parcours par la section1 et non pas sur la section 0. (c’est-à-dire que si aucune section n'est spécifiée, on redirige vers la section1.) 
 * Il n'est pas possible de naviguer d'un module à l'autre mais La navigation est possible au sein d'un même module (cf. paramétrage du bloc) et au niveau des page extra module
