@@ -11,6 +11,7 @@ Les titres existants et les couleurs associées sont les suivants :
 
 Il est possible de modifier le titre de chaque étiquette pédagogique dans les paramètres de celle-ci.
 
+Cette activité a été validée pour la version 3.5 de Moodle. Son fonctionnement est expérimental sur les versions ultérieures.
 
 Installation
 ============
