@@ -1,6 +1,7 @@
 Format thématique M@gistere 
 ============================
-Version modifiée du format thématique ajouté par défaut sur Moodle. Liste des modifications :
+Version modifiée du format thématique ajouté par défaut sur Moodle.
+Liste des modifications :
 * Seul le nombre de sections n'est proposé dans les paramètres spécifiques lors de la création d'un parcours.
 * Le parcours est présenté selon le paramètre "Afficher une section par page« du format thématique standard.
 * Les utilisateurs arrivent sur le parcours par la section1 et non pas sur la section 0. (c’est-à-dire que si aucune section n'est spécifiée, on redirige vers la section1.) 
