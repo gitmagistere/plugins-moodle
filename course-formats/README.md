@@ -1,4 +1,3 @@
-
 # Formats de cours m@gistère en marque blanche
 
  1. Généralités
