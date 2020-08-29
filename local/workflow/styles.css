@@ -1,0 +1,440 @@
+.breadcrumb-button .singlebutton .notification-badge {
+    margin-left: 10px;
+}
+
+.breadcrumb-button .singlebutton .notification-badge i{
+    color: #f06d7c;
+}
+
+.breadcrumb-button .singlebutton .notification-badge .fa-stack-1x{
+    color: #fff;
+    font-family: 'open sans', sans-serif;
+    font-weight: 600;
+}
+
+.workflow h2 {
+    margin-top: 0;
+}
+
+.workflow .collapsible-actions {
+    display: none;
+}
+
+.workflow .header {
+    background-color: #d4e7ef;
+    margin-bottom: 20px;
+}
+
+.workflow .header .timeline {
+    border-bottom: solid #aad7eb 1px;
+    padding: 14px;
+    text-align: center;
+}
+
+.workflow .header .timeline .banner-title,
+.workflow .header .timeline .separator {
+    display: inline-block;
+    height: 30px;
+    vertical-align: middle;
+}
+
+.workflow .header .timeline .banner-title .title {
+    padding-left: 4px;
+}
+
+.workflow .header .timeline .banner-title .title.actual,
+.workflow .header .timeline .banner-title .fa-circle.actual{
+    color: #0095db
+}
+
+.workflow .header .timeline .banner-title .title.soon,
+.workflow .header .timeline .banner-title .fa-circle.soon{
+    color: #b4c3c9;
+}
+
+.workflow .header .timeline .banner-title .fa-stack-1x{
+    color: #fff;
+    font-family: 'open sans', sans-serif;
+    font-weight: 600;
+}
+
+.workflow .header .timeline .separator {
+    padding: 0 14px;
+    text-align: center;
+    background: url([[pix:local_workflow|separator]]) no-repeat center;
+}
+
+.workflow .header .content {
+    display: block;
+    padding: 5px;
+}
+
+.workflow .buttons-action .iconhelp.fa-exclamation-circle{
+    vertical-align: text-top;
+}
+.workflow .buttons-action {
+    height: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.workflow .buttons-action .button {
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-weight: normal;
+    margin: 0;
+    background-color: #b4c3c9;
+    text-shadow: none;
+}
+
+.workflow .buttons-action .button:hover {
+    color: #333;
+}
+
+.workflow .buttons-action .button.disable,
+.workflow .mform .secondary-link.disable {
+    color: #888;
+    cursor: default;
+}
+
+.workflow .buttons-action .button.middle {
+    margin: 0 auto;
+}
+
+.workflow .buttons-action .span3.left,
+.workflow .buttons-action .span4.left,
+.workflow .buttons-action .span5.left,
+.workflow .buttons-action .span6.left{
+    text-align: left;
+}
+
+.workflow .buttons-action .span3.middle,
+.workflow .buttons-action .span4.middle,
+.workflow .buttons-action .span5.middle,
+.workflow .buttons-action .span6.middle{
+    text-align: center;
+}
+
+.workflow .buttons-action .span3.right,
+.workflow .buttons-action .span4.right,
+.workflow .buttons-action .span5.right,
+.workflow .buttons-action .span6.right{
+    text-align: right;
+}
+
+.workflow .mform {
+    margin-top: 50px;
+}
+
+.workflow .mform #fgroup_id_tempspresence_group input,
+.workflow .mform #fgroup_id_tempsdistance_group input {
+    width: 60px;
+}
+
+.workflow .mform .enrol-link,
+.workflow .mform .indexation-link,
+.workflow .mform .gaia-search,
+.workflow .mform .secondary-link{
+    color: #0095db;
+}
+
+.workflow .iconhelp.fa-exclamation-circle,
+.workflow .mform .notification-badge i{
+    vertical-align: middle;
+    color: #f06d7c;
+}
+
+.workflow .buttons-action .helptooltip{
+    padding: 3px 0 0 5px;
+}
+
+.workflow .mform #id_inscriptionformateurheader .helptooltip i.iconhelp,
+.workflow .mform #id_inscriptiontuteurheader .helptooltip i.iconhelp,
+.workflow .mform #id_inscriptionparticipantheader .helptooltip i.iconhelp {
+    font-size: 1.3em;
+}
+
+.workflow .mform .notification-badge {
+    font-size: 0.7em;
+}
+
+.workflow .mform .notification-badge .fa-stack-1x{
+    color: #fff;
+    font-family: 'open sans', sans-serif;
+    font-weight: 600;
+}
+
+.workflow .mform hr {
+    border-bottom: 1px dashed #dddddd;
+}
+
+.workflow .mform textarea {
+    resize: vertical;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.workflow .mform .gaia-unlink,
+.workflow .mform .gaia-show-session {
+    padding-left: 0.5em;
+}
+
+.workflow .mform .sessions-course-title,
+.workflow .mform .sessions-via-title {
+    position: relative;
+    font-weight: bold;
+}
+
+.workflow .mform .sessions-course-title span,
+.workflow .mform .sessions-via-title span {
+    position: relative;
+    z-index: 1;
+    background-color: #ecf0f1;
+    padding-right: 10px;
+    text-transform: uppercase;
+}
+
+.workflow .mform .sessions-course-title:after,
+.workflow .mform .sessions-via-title:after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0.5em;
+    border-top: 1px solid #888;
+    z-index: 0;
+}
+
+.workflow .mform .session-course-content,
+.workflow .mform .session-via-content{
+    border: 1px solid #888;
+    padding: 5px;
+    background-color: #fff;
+    color: #0095db;
+    margin-bottom: 10px;
+}
+
+.workflow .mform .session-course-content .session-detail{
+    width: 75%;
+    display: inline-block;
+}
+
+.workflow .mform .session-via-content .via-detail {
+    width: 30%;
+    display: inline-block;
+}
+
+.workflow .mform .session-course-content .session-detail span,
+.workflow .mform .session-via-content .via-detail span,
+.workflow .mform .session-via-content .via-gaia-detail span{
+    display: block;
+}
+
+.workflow .mform .session-course-content .session-detail span.dispositif,
+.workflow .mform .session-course-content .session-detail span.module,
+.workflow .mform .session-via-content .via-detail span.via-name {
+    font-weight: bold;
+}
+
+.workflow .mform .session-course-content .info-actions {
+    display: inline-block;
+    width: 25%;
+    vertical-align: top;
+}
+
+.workflow .mform .session-course-content .info-actions .info-users {
+    display: inline-block;
+    background: red;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 2px 5px;
+}
+
+.workflow .mform .session-course-content .info-actions .actions,
+.workflow .mform .via-gaia-content .info-actions .actions {
+    display: inline-block;
+    margin-left: 20px;
+    font-size: 18pt;
+    float: right;
+}
+
+.workflow .mform .session-course-content .info-actions .actions a,
+.workflow .mform .via-gaia-content .info-actions .actions a {
+    color: #0095db;
+}
+
+.workflow .mform .add-gaia-association {
+    text-align: right;
+}
+
+.workflow .mform .add-gaia-association a.btn {
+    color: #fff;
+    background: #0095db;
+    text-shadow: none;
+}
+
+.workflow .mform .add-gaia-association a.btn:hover {
+    color: #fff;
+    background: #4f4f4f;
+    outline: 0;
+}
+
+
+.workflow .mform .via-gaia-content {
+    display: inline-block;
+    width: 70%;
+    vertical-align: top;
+}
+
+.workflow .mform .via-gaia-content .separator {
+    display: inline-block;
+    width: 10%;
+    vertical-align: top;
+}
+
+.workflow .mform .via-gaia-content .separator i {
+    font-size: 24pt;
+}
+
+.workflow .mform .via-gaia-content .via-gaia-detail {
+    display: inline-block;
+    width: 80%;
+}
+
+.workflow .mform .via-gaia-content a.bind-via {
+    color: #0095db;
+    float: right;
+}
+
+.workflow .mform .via-gaia-content a.bind-via i {
+    font-size: 18pt;
+    vertical-align: middle;
+}
+
+.workflow .mform .via-gaia-content a.bind-via span {
+    margin-left: 5px;
+}
+
+.workflow .mform .via-gaia-content .info-users {
+    display: inline-block;
+    background: red;
+    color: #fff;
+    font-weight: bold;
+    vertical-align: top;
+    padding: 2px 5px;
+}
+
+.workflow .mform .via-gaia-content .info-actions {
+    display: inline-block;
+    float: right;
+}
+
+.pagelayout-workflow .alert-close {
+    color : red;
+}
+
+.workflow .mform #id_publicationheader a.share-link,
+.workflow .mform #id_publicationheader a.publish-link{
+    background-color: #0095db;
+    color: #fff;
+    text-shadow: none;
+}
+
+.workflow .mform #id_publicationheader a.share-link.cancel,
+.workflow .mform #id_publicationheader a.publish-link.cancel{
+    background-color: #E86e79;
+    margin-left: 20px;
+}
+
+.workflow .mform #id_publicationheader a.share-link:hover,
+.workflow .mform #id_publicationheader a.publish-link:hover{
+    background-color: #4f4f4f;
+}
+
+.workflow .mform #id_publicationheader .felement {
+    margin-bottom: 20px;
+}
+
+
+.workflow .infoicon {
+	margin-right:5px;
+	vertical-align: middle;
+    color: #0095db;
+    vertical-align: text-top;
+}
+
+.workflow .infolabel {
+	vertical-align: middle;
+}
+
+
+
+#wf_dialog_optimize #wf_dialog_optimize_content ul {
+	list-style: none;
+}
+
+#wf_dialog_optimize #wf_dialog_optimize_content ul input {
+	height:15px;
+	width:15px;
+}
+
+
+#wf_dialog_optimize {
+	padding: .2em 1em;
+}
+
+#wf_dialog_optimize_content {
+	overflow-y: scroll;
+	height: 210px;
+	margin:5px 0;
+}
+
+#wf_dialog_optimize_step2_content {
+	overflow-y: scroll;
+	height: 165px;
+	margin:5px 0;
+}
+
+#wf_dialog_optimize_step3_content {
+	overflow-y: scroll;
+	height: 250px;
+	margin:5px 0;
+}
+
+#wf_dialog_optimize_step4_content {
+	text-align: center;
+	height: 50px;
+	margin:5px 0;
+}
+
+#wf_dialog_optimize_step1_button,
+#wf_dialog_optimize_step2_button,
+#wf_dialog_optimize_step3_button,
+#wf_dialog_optimize_step4_button {
+	margin: 5px auto 0px auto;
+}
+
+#wf_dialog_optimize_step1_button input,
+#wf_dialog_optimize_step2_button input,
+#wf_dialog_optimize_step3_button input,
+#wf_dialog_optimize_step4_button input {
+	margin: 0;
+}
+
+#wf_dialog_optimize_step3_button,
+#wf_dialog_optimize_step4_button {
+	text-align:center;
+}
+
+#wf_dialog_optimize_step1_button_ignore,
+#wf_dialog_optimize_step2_button_ignore {
+	float:right;
+	background:none;
+	border: none;
+    box-shadow: none;
+    color:#0095db;
+}
+
+

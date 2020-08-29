@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/workflow/db" VERSION="20180926" COMMENT="XMLDB file for Moodle local/workflow"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="local_workflow" COMMENT="local_workflow table">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="false" SEQUENCE="true" NEXT="courseid"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false" COMMENT="course_id" PREVIOUS="id" NEXT="issessioncours"/>
+                <FIELD NAME="issessioncours" SEQUENCE="false" TYPE="int" LENGTH="1" NOTNULL="false" PREVIOUS="courseid"/>
+                <FIELD NAME="issessionautoformationcours" SEQUENCE="false" TYPE="int" LENGTH="1" NOTNULL="false" PREVIOUS="issessioncours"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" DEFAULT="0" SEQUENCE="false" PREVIOUS="issessionautoformationcours"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="course_trash_category" COMMENT="">
+            <FIELDS>
+               <FIELD NAME="id" SEQUENCE="true" TYPE="int" LENGTH="11" NOTNULL="true" NEXT="course_id"/>
+               <FIELD NAME="course_id" SEQUENCE="false" TYPE="int" LENGTH="11" NOTNULL="true" PREVIOUS="id" NEXT="category_id"/>
+               <FIELD NAME="category_id" SEQUENCE="false" TYPE="int" LENGTH="11" NOTNULL="true" PREVIOUS="course_id" NEXT="updatetime"/>
+               <FIELD NAME="updatetime" SEQUENCE="false" TYPE="int" LENGTH="11" NOTNULL="true" PREVIOUS="category_id"/>
+            </FIELDS>
+            <KEYS>
+               <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+    	</TABLE>
+    </TABLES>
+</XMLDB>
