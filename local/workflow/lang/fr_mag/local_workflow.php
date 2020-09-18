@@ -126,13 +126,13 @@ $string['label_gaia'] = 'Gaia';
 $string['label_indexation'] = 'Gérer l\'indexation';
 $string['label_indexation_help'] = 'L\'identifiant du parcours permet de lier un parcours avec ses différentes sessions.
 Il permet d\'assurer un suivi de la fréquentation et de l\'usage du parcours et de ses différentes sessions.';
-$string['label_inscription_concepteur'] = 'Inscrire les {$a}';
-$string['label_inscription_formateur'] = 'Inscrire les {$a}';
+$string['label_inscription_concepteur'] = 'Inscrire des utilisateurs avec le rôle de "{$a}"';
+$string['label_inscription_formateur'] = 'Inscrire des utilisateurs avec le rôle de "{$a}"';
 $string['label_inscription_formateur_help'] = 'Dans le cas d’une session de formation accompagnée, l\'inscription d’au moins un Formateur est nécessaire avant de pouvoir ouvrir la session.';
-$string['label_inscription_participant'] = 'Inscrire les {$a}';
+$string['label_inscription_participant'] = 'Inscrire des utilisateurs avec le rôle de "{$a}"';
 $string['label_inscription_participant_help'] = 'L\'ouverture de la session n’est possible que si des Participants sont inscrits.
 A ce stade, vous disposez de plusieurs méthodes pour inscrire les {$a} accessible dans cette interface.';
-$string['label_inscription_tuteur'] = 'Inscrire les {$a}';
+$string['label_inscription_tuteur'] = 'Inscrire des utilisateurs avec le rôle de "{$a}"';
 $string['label_publication'] = 'Publication';
 
 $string['alert_close'] = 'Il est nécessaire d\'attester la participation des inscrits à votre formation avant de la clôturer car cela n\'est plus possible une fois la session archivée.';

@@ -205,20 +205,20 @@ class WFSessionPreparationForm extends moodleform {
 
         // Collapse duree
         if(isIndexationAvailable() && has_capability('local/workflow:setcourseduration', $context)){
-            $count_notification_date = 0;
+            $count_notification_duree = 0;
             $tps_en_presence_notification = '';
             if(array_key_exists('tps_en_presence', $required_fields)){
                 $tps_en_presence_notification = generate_help_icon_HTML('field_temps_en_presence', 'local_workflow', 1);
-                $count_notification_date += 1 ;
+                $count_notification_duree += 1 ;
             }
             $tps_a_distance_notification = '';
             if(array_key_exists('tps_a_distance', $required_fields)){
                 $tps_a_distance_notification = generate_help_icon_HTML('field_temps_a_distance', 'local_workflow', 1);
-                $count_notification_date += 1 ;
+                $count_notification_duree += 1 ;
             }
             $header_notification = '';
-            if($count_notification_date != 0 ){
-                $header_notification = generate_help_icon_HTML('label_duree', 'local_workflow', $count_notification_date);
+            if($count_notification_duree != 0 ){
+                $header_notification = generate_notification_HTML($count_notification_duree);
             }
             $mform->addElement('header', 'dureeheader',
                 get_string('label_duree', 'local_workflow')

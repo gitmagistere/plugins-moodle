@@ -50,8 +50,8 @@ function get_wf_role($shortname){
 }
 
 define("WKF_ROLE_PARTICIPANT",   get_wf_role('participant'));
-define("WKF_ROLE_FORMATEUR",     get_wf_role('tuteur'));
-define("WKF_ROLE_TUTEUR",        get_wf_role('formateur'));
+define("WKF_ROLE_FORMATEUR",     get_wf_role('formateur'));
+define("WKF_ROLE_TUTEUR",        get_wf_role('tuteur'));
 define("WKF_ROLE_CONCEPTEUR",    get_wf_role('concepteur'));
 
 function get_wf_role_name($name){
@@ -70,8 +70,8 @@ function get_wf_role_name($name){
 }
 
 define("WKF_ROLE_NAME_PARTICIPANT",   get_wf_role_name('participant'));
-define("WKF_ROLE_NAME_FORMATEUR",     get_wf_role_name('tuteur'));
-define("WKF_ROLE_NAME_TUTEUR",        get_wf_role_name('formateur'));
+define("WKF_ROLE_NAME_FORMATEUR",     get_wf_role_name('formateur'));
+define("WKF_ROLE_NAME_TUTEUR",        get_wf_role_name('tuteur'));
 define("WKF_ROLE_NAME_CONCEPTEUR",    get_wf_role_name('concepteur'));
 
 
