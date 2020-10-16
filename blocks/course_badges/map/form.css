@@ -1,0 +1,19 @@
+#mform1 .felement.fsubmit {
+    margin-left: 0;
+}
+
+.noresult {
+    text-align: center;
+    font-size: 25px;
+    margin-top: 25px;
+}
+
+.map_controls {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.map_controls > * {
+	margin: 10px;
+}

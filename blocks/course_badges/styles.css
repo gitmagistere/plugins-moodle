@@ -1,0 +1,132 @@
+.block_course_badges .bcb_badge {
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #f3f3f3;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.block_course_badges .bcb_badge span {
+    display: -webkit-box;
+    width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    font-size: 12px;
+    height: 2.4em;
+    line-height: 1.2em;
+    text-align: center;
+}
+
+.block_course_badges .bcb_badge img {
+    width: 80px;
+    margin-bottom: 10px;
+}
+
+.block_course_badges .clear, .block_course_badges .showmore {
+    display: block;
+    clear: both;
+}
+
+.block_course_badges .showmore {
+    text-align: center;
+    color: rgb(51, 51, 51);
+}
+
+.block_course_badges .showmore:hover {
+    cursor: pointer;
+    color: #0095db;
+}
+
+.block_course_badges .more_badges_hidden {
+    display: none;
+}
+
+.block_course_badges h3 {
+    font-size: 20px;
+    text-align: left;
+    margin-left: -14px;
+    margin-right: -14px;
+    color: black !important;
+    font-weight: bold;
+    text-shadow: none !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 15px !important;
+    margin-bottom: 0px;
+}
+
+.block_course_badges h3:hover {
+    cursor: pointer;
+}
+
+/* OVERVIEW BADGE */
+
+.cb_overviewbadge {
+    width: 100px;
+}
+
+.cb_overviewbadge_mini {
+    width: 50px;
+}
+.userslist{
+    margin: 0 10px;
+}
+.userslist .userlistuser{
+    float:left;
+    width: 100px;
+    margin-right: 20px;
+    margin-bottom: 10px;
+}
+
+.userslist .userlistuser img {
+    width: 100px;
+}
+
+.userslist .userlistuser span {
+    display: block;
+    width: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.link_navigation {
+    clear: both;
+}
+
+.link_navigation .prev{
+    float: left;
+}
+
+.link_navigation .next {
+    float: right;
+}
+
+.activity-encart .activity-encart-backButton{
+    margin-top: 5px;
+    margin-bottom: 25px;
+}
+
+.activity-encart img {
+    width: 92px;
+    margin-right: 10px;
+}
+
+.activity-encart .badgename {
+    font-size: 24px;
+    font-family: "open sans";
+    color : #666666;
+}
+
+#fitem_id_submitbutton {
+    margin: 0;
+}
+
+td.jt_separatorcol, th.jt_separatorcol{
+	border-right-width: 6px !important;
+	border-right-style: double !important;
+}

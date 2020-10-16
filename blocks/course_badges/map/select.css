@@ -1,0 +1,130 @@
+.select-img {
+    position: relative;
+    margin-right: 20px;
+}
+
+.select-img .imgplaceholder {
+    width: 42px;
+    height: 42px;
+    visibility: hidden;
+}
+
+.select-img i.fas.fa-shield-alt {
+    width: 42px;
+    text-align: center;
+    line-height: 42px;
+    font-size: 20px;
+}
+
+.option-selected {
+    width:225px;
+    height:42px;
+    line-height:42px;
+    background:white;
+    border:1px solid #d9d9d9;
+    border-right: 0px;
+    float: left;
+    border-radius: 5px 0px 0px 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option-selected.focus {
+    border: 1px solid #76c2e6;
+    border-right: 0px;
+}
+
+.option-selected-arrow {
+    height: 42px;
+    border: 1px solid #d9d9d9;
+    border-left: 0;
+    background-color: white;
+    width: 15px;
+    display: inline-block;
+    position: relative;
+    border-radius: 0px 5px 5px 0px;
+    z-index: 10;
+}
+
+.option-selected-arrow.focus {
+    border: 1px solid #76c2e6;
+    border-left: 0;
+}
+
+.option-selected-arrow:after {
+    content:"\f078";
+    font-size:0.7em;
+    font-family:"FontAwesome";
+    position: absolute;
+    top: 12px;
+    left: 2px;
+}
+
+.option-selected-arrow.expand:after {
+    content:"\f077";
+    font-size:0.7em;
+    font-family:"FontAwesome";
+    position: absolute;
+    top: 12px;
+    left: 2px;
+}
+
+.option-selected-arrow:hover, .option-selected:hover {
+    cursor: pointer;
+}
+
+.options {
+    background: white;
+    border:1px solid #d9d9d9;
+    margin-top: 0px;
+    width: 240px;
+    position: absolute;
+    display: none;
+    top: 48px;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0px 0px 3px #dadada;
+}
+
+.options input {
+    display: none;
+}
+
+.options label {
+    height: 41px;
+    display: inline-block !important;
+    margin: 0;
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.options img , .option-selected img {
+    width: 42px;
+    position: relative;
+    top: -1px;
+}
+
+.option-selected img {
+    top: -2px;
+}
+
+.option {
+    height: 42px;
+    line-height: 42px;
+}
+
+.option label {
+    padding-left: 0 !important;
+}
+
+.option:hover {
+    cursor: pointer;
+    background-color: #dfeef5;
+}
+
+.option.selected label {
+    font-weight: bold;
+}
+
