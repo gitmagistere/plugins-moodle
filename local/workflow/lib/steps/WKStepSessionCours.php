@@ -65,8 +65,8 @@ class WFStepSessionCours extends WFStep {
      */
     public function getStepName() {
         if (isCourseHubAvailable()){
-            if(course_is_published($this->courseid) !== false &&
-                course_is_published($this->courseid) == CourseHub::PUBLISH_PUBLISHED){
+            require_once($GLOBALS['CFG']->dirroot.'/local/coursehub/CourseHub.php');
+            if(courseIsPublished($this->courseid, CourseHub::PUBLISH_PUBLISHED)){
                 if(wf_get_main_category() == WKF_CAT_SLAF){
                     return get_string('status_local_publish', 'local_workflow');
                 }
@@ -250,12 +250,11 @@ class WFStepSessionCours extends WFStep {
             require_once($CFG->dirroot.'/local/coursehub/CourseHub.php');
             $source .= dialog_publish($this->courseid, "publish", $isalocalsession);
     
-            if(course_is_published($this->courseid) !== false){
-                $method = "publish";
-                if(course_is_published($this->courseid) == CourseHub::PUBLISH_SHARED){
-                    $method = "share";
-                }
-                $source .= dialog_unpublish($this->courseid, $method);
+            if(courseIsPublished($this->courseid,CourseHub::PUBLISH_PUBLISHED)){
+                $source .= dialog_unpublish($this->courseid, 'publish');
+            }
+            if(courseIsPublished($this->courseid,CourseHub::PUBLISH_SHARED)){
+                $source .= dialog_unpublish($this->courseid, 'share');
             }
         }
         return $source;

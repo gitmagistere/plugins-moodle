@@ -16,7 +16,6 @@
 require_once(dirname(dirname(dirname(dirname(__FILE__)))).'/config.php');
 
 require_once($CFG->dirroot . '/local/workflow/lib/WFManager.php');
-global $DB, $CFG;
 
 $action_type = required_param('link_type', PARAM_TEXT);
 $course_id = required_param('course_id', PARAM_INT);

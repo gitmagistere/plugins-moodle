@@ -352,10 +352,10 @@ class WFManager
             if ($session_cat_id) {
                 $session_autoformation_id = $DB->get_field('course_categories', 'id', array('name' => WKF_CAT_SAF, 'parent' => $session_cat_id));
                 if ($session_autoformation_id) {
-                    $data_course->category = $session_autoformation_id;
+                    move_courses(array($course_id), $session_autoformation_id);
                 }
             }
-
+            
             //Updating course
             if (!$DB->update_record('course', $data_course)) {
                 $msg = get_string('course_management_open_auto_formation_failed', 'local_workflow');
@@ -714,7 +714,6 @@ class WFManager
         if (!isCourseHubAvailable()){
             return false;
         }
-        require_once($CFG->dirroot.'/local/magisterelib/magistereLib.php');
         require_once($CFG->dirroot.'/local/coursehub/CourseHub.php');
 
         $hub = CourseHub::instance();
@@ -728,12 +727,18 @@ class WFManager
             }
 
             if($hub->canPublish()){
-                MagistereLib::update_course_modified(false,$courseid);
+                if (file_exists($CFG->dirroot.'/local/magisterelib/magistereLib.php')){
+                    require_once($CFG->dirroot.'/local/magisterelib/magistereLib.php');
+                    MagistereLib::update_course_modified(false,$courseid);
+                }
                 $hub->publishCourse($courseid, $isalocalsession);
             }
         } else {
             if($hub->canShare()){
-                MagistereLib::update_course_modified(false,$courseid);
+                if (file_exists($CFG->dirroot.'/local/magisterelib/magistereLib.php')){
+                    require_once($CFG->dirroot.'/local/magisterelib/magistereLib.php');
+                    MagistereLib::update_course_modified(false,$courseid);
+                }
                 $hub->shareCourse($courseid);
             }
         }

@@ -270,7 +270,6 @@ function indexation_achievement($course_id){
             if($key == 'startdate' && $course->startdate){
                 continue;
             }
-
             return false;
         }
     }
@@ -550,29 +549,19 @@ function is_ready_to_share($courseid){
     $hub = CourseHub::instance();
 
     if($hub->canShare()){
-        
-        if (!indexation_achievement_for_sharing($courseid)) {
-            return false;
+        if (isIndexationAvailable()){
+            if (!indexation_achievement_for_sharing($courseid)) {
+                return false;
+            }
         }
         
         $course = get_course($courseid);
 
         $course_category = $DB->get_records_sql("
 SELECT * 
-FROM {local_indexation} im
-INNER JOIN {context} c ON (c.instanceid = im.courseid) 
-WHERE im.courseid = ? AND c.contextlevel = 50 
-AND c.path LIKE(
-    SELECT CONCAT('%/',id,'/%') 
-    FROM {context} 
-    WHERE contextlevel = 40 
-    AND instanceid = (
-        SELECT id 
-        FROM {course_categories} 
-        WHERE name = ? 
-        AND depth = 2
-    )
-)",
+FROM {context} c 
+WHERE c.instanceid = ? AND c.contextlevel = 50 
+AND c.path LIKE(SELECT CONCAT('%/',id,'/%') FROM {context} WHERE contextlevel = 40 AND instanceid = (SELECT id FROM {course_categories} WHERE name = ? AND depth = 2))",
             array($course->id, WKF_CAT_PED));
         
         if($course_category){
@@ -582,10 +571,10 @@ FROM {enrol}
 WHERE enrol = "self"
 AND courseid = ?
 AND (password IS NULL OR password = "")
-AND roleid = (SELECT id FROM {role} WHERE shortname = "participant")
+AND roleid = (SELECT id FROM {role} WHERE shortname = ?)
 AND status = 0
 AND customint6 = 1',
-                array($courseid, time(), time(), time()));
+                array($courseid, WKF_ROLE_PARTICIPANT));
 
             if(count($inscriptionmethod) > 0){
                 return true;
@@ -612,12 +601,14 @@ function is_ready_to_publish($courseid, $isalocalsession = 0){
     require_once($CFG->dirroot . '/local/coursehub/CourseHub.php');
 
     $hub = CourseHub::instance();
-
+    
     if($hub->canPublish()){
         $course = get_course($courseid);
         
-        if (!indexation_achievement($courseid)) {
-            return false;
+        if (isIndexationAvailable()){
+            if (!indexation_achievement($courseid)) {
+                return false;
+            }
         }
 
         if($isalocalsession){
@@ -627,9 +618,8 @@ function is_ready_to_publish($courseid, $isalocalsession = 0){
         }
 
         $course_category = $DB->get_record_sql("SELECT * 
-FROM {local_indexation} im
-INNER JOIN {context} cx ON (cx.instanceid = im.courseid) 
-WHERE im.courseid = ? AND cx.contextlevel = 50
+FROM {context} cx 
+WHERE cx.instanceid = ? AND cx.contextlevel = 50
 AND cx.path LIKE(SELECT CONCAT('%/',id,'/%') FROM {context} WHERE contextlevel = 40 AND instanceid = (SELECT id FROM {course_categories} WHERE name = ? AND depth = 2))",
                                                 array($course->id, $cat_name));
         if(!is_en_cours($courseid)){
@@ -645,10 +635,10 @@ AND (enrolstartdate = 0
     OR (enrolstartdate < ? AND enrolenddate = 0) 
     OR (enrolstartdate < ? AND enrolenddate > ?)
 )
-AND roleid = (SELECT id FROM {role} WHERE shortname = "participant")
+AND roleid = (SELECT id FROM {role} WHERE shortname = ?)
 AND status = 0
 AND customint6 = 1',
-                                                        array($courseid, time(), time(), time()));
+                                                        array($courseid, time(), time(), time(), WKF_ROLE_PARTICIPANT));
             if(count($inscriptionmethod) > 0){
                 return true;
             }
@@ -662,24 +652,16 @@ AND customint6 = 1',
  * @param $courseid
  * @return bool|int
  */
-function course_is_published($courseid){
+function courseIsPublished($courseid, $publishmod = null){
     if (!isCourseHubAvailable()){
         return false;
     }
-    global $CFG;
-    require_once($CFG->dirroot . '/local/coursehub/CourseHub.php');
+    require_once($GLOBALS['CFG']->dirroot . '/local/coursehub/CourseHub.php');
 
     $hub = CourseHub::instance();
-    $publish = $hub->getPublishedCourse($CFG->academie_name, $courseid, CourseHub::PUBLISH_PUBLISHED);
+    $publish = $hub->getPublishedCourse($hub->getIdentifiant(), $courseid, $publishmod);
     
-    if($publish !== false){
-        return CourseHub::PUBLISH_PUBLISHED;
-    }else{
-        if ($hub->getPublishedCourse($CFG->academie_name, $courseid, CourseHub::PUBLISH_SHARED) !== false ){
-            return CourseHub::PUBLISH_SHARED;
-        }
-    }
-    return false;
+    return $publish !== false;
 }
 
 /**

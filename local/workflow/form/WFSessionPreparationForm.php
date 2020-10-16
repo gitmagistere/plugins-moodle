@@ -281,6 +281,15 @@ class WFSessionPreparationForm extends moodleform {
         // Collapse publication
         if(isCourseHubAvailable() && (has_capability('local/coursehub:publish', $context)
             || has_capability('local/coursehub:share', $context))){
+            
+            require_once($CFG->dirroot.'/local/coursehub/CourseHub.php');
+                
+            $isPublished = courseIsPublished($this->_customdata['id'], CourseHub::PUBLISH_PUBLISHED);
+            $isShared = courseIsPublished($this->_customdata['id'], CourseHub::PUBLISH_SHARED);
+            $isReadyToShare = is_ready_to_share($this->_customdata['id']);
+            $isReadyToPublish = is_ready_to_publish($this->_customdata['id']);
+            $isReadyToPublishLocal = is_ready_to_publish($this->_customdata['id'],1);
+                
             $header_publication= '';
             $mform->addElement('header', 'publicationheader',
                 get_string('label_publication', 'local_workflow')
@@ -291,14 +300,12 @@ class WFSessionPreparationForm extends moodleform {
             $btn_publish_title = get_string('link_publish', 'local_workflow');
             $btn_local_publish_title = get_string('link_local_publish', 'local_workflow');
 
-            if(course_is_published($this->_customdata['id']) !== false
-                && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_SHARED){
+            if($isShared){
                 $status = get_string('status_share_course', 'local_workflow');
                 $btn_share_title = get_string('link_share_update', 'local_workflow');
             }
 
-            if(course_is_published($this->_customdata['id']) !== false
-                && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_PUBLISHED){
+            if($isPublished){
                 if(wf_get_main_category() == WKF_CAT_SLAF){
                     $status = get_string('status_local_publish', 'local_workflow');
                 } else {
@@ -307,39 +314,29 @@ class WFSessionPreparationForm extends moodleform {
                 $btn_publish_title = $btn_local_publish_title = get_string('link_publish_update', 'local_workflow');
             }
 
-            $mform->addElement('html', '<div class="fitem">
-                                                    <div class="fitemtitle"></div>
-                                                    <div class="felement">
-                                                        <span>'.$status.'</span>
-                                                    </div>');
+            $mform->addElement('html', '<div class="fitem"><div class="fitemtitle"></div><div class="felement"><span>'.$status.'</span></div>');
 
-            require_once($CFG->dirroot.'/local/coursehub/CourseHub.php');
-            require_once($CFG->dirroot.'/local/magisterelib/magistereLib.php');
-            //$courseupdated = MagistereLib::hasCourseBeenUpdated($this->_customdata['id']);
-            $indexupdated = MagistereLib::hasIndexBeenUpdated($this->_customdata['id']);
-            $updatedhtml = '';
-            if ($indexupdated){
-                $updatedhtml .= '<br/>
-                    <i  alt="L\'indexation liée à votre session est différente de celle publiée. Vous pouvez la mettre à jour en cliquant ci-dessous." 
-                        class="infoicon fa fa-2x fa-info-circle"></i>
-                    <span class="infolabel"> L\'indexation liée à votre session est différente de celle publiée. Vous pouvez la mettre à jour en cliquant ci-dessous.</span>';
+            if (isIndexationAvailable()){
+                require_once($CFG->dirroot.'/local/magisterelib/magistereLib.php');
+                $indexupdated = MagistereLib::hasIndexBeenUpdated($this->_customdata['id']);
+                
+                if ($indexupdated){
+                    $mform->addElement('html','
+<div class="fitem">
+    <div class="fitemtitle"></div>
+    <div class="felement">
+        <br/>
+        <i  alt="L\'indexation liée à votre session est différente de celle publiée. Vous pouvez la mettre à jour en cliquant ci-dessous." class="infoicon fa fa-2x fa-info-circle"></i>
+        <span class="infolabel"> L\'indexation liée à votre session est différente de celle publiée. Vous pouvez la mettre à jour en cliquant ci-dessous.</span>
+    </div>
+</div>');
+                }
             }
-
-            if ($indexupdated) {
-                $mform->addElement('html',
-                    '<div class="fitem">
-                        <div class="fitemtitle"></div>
-                        <div class="felement">
-                            '.$updatedhtml.'
-                        </div>
-                    </div>');
-            }
-
+            
+            
             // Gestion des boutons dans le cas d'un parcours
             if(has_capability('local/coursehub:share', $context)) {
-                if (is_ready_to_share($this->_customdata['id'])
-                    || (course_is_published($this->_customdata['id']) !== false
-                        && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_SHARED)) {
+                if ($isReadyToShare || $isShared) {
                     $html_share_content = '';
                     if (is_ready_to_share($this->_customdata['id'])) {
                         $html_share_content .= '<a class="share-link btn" id="wf_link_publish" href="#">'
@@ -350,9 +347,7 @@ class WFSessionPreparationForm extends moodleform {
                             . ' <i class="fa fa-external-link" aria-hidden="true"></i></span>'
                             . generate_help_icon_HTML('link_share_disable','local_workflow');
                     }
-                    if (course_is_published($this->_customdata['id']) !== false
-                        && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_SHARED
-                        && has_capability('local/coursehub:unpublish', $context)) {
+                    if ($isShared && has_capability('local/coursehub:unpublish', $context)) {
                         $html_share_content .= '<a class="share-link cancel btn" id="wf_link_unpublish" href="#">'
                             . get_string('link_share_cancel', 'local_workflow') . '</a>';
                     }
@@ -371,14 +366,11 @@ class WFSessionPreparationForm extends moodleform {
 
             // Gestion des boutons dans le cas d'une session de formation
             if(has_capability('local/coursehub:publish', $context)) {
-                if (is_ready_to_publish($this->_customdata['id'])
-                    || (course_is_published($this->_customdata['id']) !== false
-                        && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_PUBLISHED)) {
+                if ($isReadyToPublish || $isPublished) {
                     $html_publish_content = '';
 
-                    if (is_ready_to_publish($this->_customdata['id'])) {
-                        if (course_is_published($this->_customdata['id']) !== false
-                            && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_SHARED) {
+                    if ($isReadyToPublish) {
+                        if ($isShared) {
                             $html_share_content .= '';
                         } else {
                             $html_publish_content .= '<a class="publish-link btn" id="wf_link_publish" href="#">'
@@ -390,8 +382,7 @@ class WFSessionPreparationForm extends moodleform {
                             . ' <i class="fa fa-external-link" aria-hidden="true"></i></span>'
                             . generate_help_icon_HTML('link_publish_disable','local_workflow');
                     }
-                    if (course_is_published($this->_customdata['id']) !== false
-                        && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_PUBLISHED
+                    if ($isPublished
                         && wf_get_main_category() == WKF_CAT_SDF
                         && has_capability('local/coursehub:unpublish', $context)) {
                         $html_publish_content .= '<a class="publish-link cancel btn" id="wf_link_unpublish" href="#">'
@@ -412,14 +403,11 @@ class WFSessionPreparationForm extends moodleform {
 
             // Gestion des boutons dans le cas d'une session locale
             if(has_capability('local/coursehub:publish', $context)) {
-                if (is_ready_to_publish($this->_customdata['id'], 1)
-                    || (course_is_published($this->_customdata['id']) !== false
-                        && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_PUBLISHED)) {
+                if ($isReadyToPublishLocal || $isPublished) {
                     $html_publish_content = '';
 
-                    if (is_ready_to_publish($this->_customdata['id'], 1)) {
-                        if (course_is_published($this->_customdata['id']) !== false
-                            && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_SHARED) {
+                    if ($isReadyToPublishLocal) {
+                        if ($isShared) {
                             $html_share_content .= '';
                         } else {
                             $html_publish_content .= '<a class="publish-link btn" id="wf_link_publish" href="#">'
@@ -431,8 +419,7 @@ class WFSessionPreparationForm extends moodleform {
                             . ' <i class="fa fa-external-link" aria-hidden="true"></i></span>'
                             . generate_help_icon_HTML('link_local_publish_disable','local_workflow');
                     }
-                    if (course_is_published($this->_customdata['id']) !== false
-                        && course_is_published($this->_customdata['id']) == CourseHub::PUBLISH_PUBLISHED
+                    if ($isPublished
                         && wf_get_main_category() == WKF_CAT_SLAF
                         && has_capability('local/coursehub:unpublish', $context)) {
                         $html_publish_content .= '<a class="publish-link cancel btn" id="wf_link_unpublish" href="#">'
