@@ -1,0 +1,165 @@
+
+<div class="modal fade" id="modalOffer_{{ id }}" tabindex="-1" role="dialog" aria-labelledby="ModalOffer" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalOfferTitle">{{ title }}</h3>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                <div class="actions">
+                    {{#pdf_url}}<a class="pdf link course" href="{{ pdf_url }}">{{# str }} pdf, local_magistere_offers {{/ str }}</a>{{/pdf_url}}
+                    <a class="shortlink link course" href="{{ shortlink }}">{{# str }} shortlink, local_magistere_offers {{/ str }}</a>
+                    <a class="btn" href="{{ inscription_url }}">{{# str }} inscription, local_magistere_offers {{/ str }}</a>
+                </div>
+            </div>
+            <div class="modal-body">
+                <ul class="offerdetail">
+                    {{#video}}
+                        <div class="video-teaser">{{{ video }}}</div>
+                    {{/video}}
+                    {{#domain}}
+                    <li class="domain {{#video}}with-video{{/video}}">
+                        <div class="itemtitle">{{# str }} domain, local_magistere_offers {{/ str }}</div>
+                        <div class="itemelement">{{ domain }}</div>
+                    </li>
+                    {{/domain}}
+                    <li class="description {{#video}}with-video{{/video}}">
+                        <div class="itemtitle">{{# str }} description, local_magistere_offers {{/ str }}</div>
+                        <div class="itemelement">{{{ description }}}</div>
+                    </li>
+                    {{#objective}}
+                    <li class="objective">
+                        <div class="itemtitle">{{# str }} objective, local_magistere_offers {{/ str }}</div>
+                        <div class="itemelement">{{{ objective }}}</div>
+                    </li>
+                    {{/objective}}
+                    {{#publics}}
+                    <li class="public">
+                        <div class="itemtitle">{{# str }} public_target, local_magistere_offers {{/ str }}</div>
+                        <div class="itemelement">{{ publics }} {{#entry_profession}} <br/> {{# str }} entry_profession, local_magistere_offers {{/ str }} {{/entry_profession}}</div>
+                    </li>
+                    {{/publics}}
+                    {{#origin_name}}
+                    <li class="origin-collection">
+                        <div class="origins half-content">
+                            <div class="itemtitle">{{# str }} origin_formation, local_magistere_offers {{/ str }}</div>
+                            <div class="itemelement">
+                                <div class="originimage img-responsive">
+                                    <img src="{{ origin_url }}" alt="{{ origin_name }}" class="{{ origin_extraclass_img }}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="collection half-content">
+                            <div class="itemtitle">{{# str }} collection, local_magistere_offers {{/ str }}</div>
+                            <div class="itemelement">
+                                {{#collection_url}}
+                                    <div class="collectionimage">
+                                        <img src="{{ collection_url }}" alt="{{ collection_name }}">
+                                    </div>
+                                    <div class="collectiontitle">{{ collection_name }}</div>
+                                {{/collection_url}}
+                            </div>
+                        </div>
+                    </li>
+                    {{/origin_name}}
+                    {{#departement}}
+                    <li class="departement">
+                        <div class="itemtitle">{{# str }} departement, local_magistere_offers {{/ str }}</div>
+                        <div class="itemelement">{{ departement }}</div>
+                    </li>
+                    {{/departement}}
+                    <li>
+                    	{{#authors}}
+                        <div class="authors half-content">
+                            <div class="itemtitle">{{# str }} formers, local_magistere_offers {{/ str }}</div>
+                            <div class="itemelement">
+                                <div>
+                                    <p>{{authors}}</p>
+                                    {{#validate_by}}
+                                        <p>
+                                            <div class="bold">{{# str }} validate_by, local_magistere_offers {{/ str }} : </div>
+                                            {{validate_by}}
+                                        </p>
+                                    {{/validate_by}}
+                                </div>
+                            </div>
+                        </div>
+                        {{/authors}}
+                        <div class="timecontent half-content">
+                            {{#start_date_formation}}
+                                <div class="startdateformation">
+                                    <div class="itemtitle">{{# str }} start_date_formation, local_magistere_offers {{/ str }}</div>
+                                    <div class="itemelement">{{ start_date_formation }}</div>
+                                </div>
+                            {{/start_date_formation}}
+                            {{#end_date_formation}}
+                                <div class="enddateformation">
+                                    <div class="itemtitle">{{# str }} end_date_formation, local_magistere_offers {{/ str }}</div>
+                                    <div class="itemelement">{{ end_date_formation }}</div>
+                                </div>
+                            {{/end_date_formation}}
+                            {{#lead_time_attendance}}
+                            <div class="leadtimeattendance">
+                                <div class="itemtitle">{{# str }} lead_time_attendance, local_magistere_offers {{/ str }}</div>
+                                <div class="itemelement">
+                                    {{#lead_time_attendance}} {{ lead_time_attendance }} {{/lead_time_attendance}}
+                                    {{^lead_time_attendance}} {{# str }} no_lead_time_attendance, local_magistere_offers {{/ str }} {{/lead_time_attendance}}
+                                </div>
+                            </div>
+                            {{/lead_time_attendance}}
+                            {{#lead_time_remote}}
+                            <div class="leadtimeremote">
+                                <div class="itemtitle">{{# str }} lead_time_remote, local_magistere_offers {{/ str }}</div>
+                                <div class="itemelement">
+                                    {{#lead_time_remote}} {{ lead_time_remote }} {{/lead_time_remote}}
+                                    {{^lead_time_remote}} {{# str }} no_lead_time_remote, local_magistere_offers {{/ str }} {{/lead_time_remote}}
+                                </div>
+                            </div>
+                            {{/lead_time_remote}}
+                        </div>
+                    </li>
+                    <li>
+                        <div class="termuse {{#rythme_formation}}half-content{{/rythme_formation}}">
+                            <div class="itemtitle">{{# str }} terms_of_use, local_magistere_offers {{/ str }}</div>
+                            <div class="itemelement">{{# str }} terms_of_use_contain_formation, local_magistere_offers {{/ str }}</div>
+                        </div>
+                        {{#rythme_formation}}
+                            <div class="rythmeformation half-content">
+                                <div class="itemtitle">{{# str }} rythme_formation, local_magistere_offers {{/ str }}</div>
+                                <div class="itemelement">{{ rythme_formation }}</div>
+                            </div>
+                        {{/rythme_formation}}
+                    </li>
+                    <li>
+                        <div class="formationframework {{#certification}}half-content{{/certification}}">
+                            <div class="itemtitle">{{# str }} formation_framework, local_magistere_offers {{/ str }}</div>
+                            <div class="itemelement">{{# str }} formation_framework_content, local_magistere_offers {{/ str }}</div>
+                        </div>
+                        {{#certification}}
+                            <div class="certification half-content">
+                                <div class="itemtitle">{{# str }} certification, local_magistere_offers {{/ str }}</div>
+                                <div class="itemelement">{{ certification }}</div>
+                            </div>
+                        {{/certification}}
+                    </li>
+                    {{#keywords}}
+                    <li class="keywords">
+                        <div class="itemtitle">{{# str }} keywords, local_magistere_offers {{/ str }}</div>
+                        <div class="itemelement">{{ keywords }}</div>
+                    </li>
+                    {{/keywords}}
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <div class="actions">
+                	{{#pdf_url}}
+                    <a class="pdf link course" href="{{ pdf_url }}">{{# str }} pdf, local_magistere_offers {{/ str }}</a>
+                    {{/pdf_url}}
+                    <a class="shortlink link course" href="{{ shortlink }}">{{# str }} shortlink, local_magistere_offers {{/ str }}</a>
+                    <a class="btn" href="{{ inscription_url }}">{{# str }} inscription, local_magistere_offers {{/ str }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

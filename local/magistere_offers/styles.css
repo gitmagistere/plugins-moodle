@@ -1,0 +1,1189 @@
+
+.offerpage .container-fluid{
+    margin: 0;
+    max-width: 100%;
+}
+
+.offerpage #page.container-fluid{
+    padding: 0;
+}
+
+.offerpage #page-content {
+    overflow: hidden;
+}
+
+.offerpage aside#block-region-side-pre {
+    background-color: #71859D;
+}
+
+.offerformation aside#block-region-side-pre {
+    background-color: #0095db;
+}
+
+.offerpage #page-content aside#block-region-side-pre{
+    margin-bottom: -99999px;
+    padding-bottom: 99999px;
+}
+
+.offerpage #page-content aside#block-region-side-pre .block{
+    margin-bottom: 0;
+    box-shadow: none;
+    border-radius: 0;
+}
+
+.offerpage .span2{
+    margin: 0 !important;
+}
+
+.offerpage .block .content{
+    padding: 0 !important;
+}
+
+.offerpage .search{
+    background-color: #cdeaf8;
+    height: 55px;
+}
+
+.offerpage .search.course{
+    background-color: #DBE0E4;
+}
+
+.offerpage .search input{
+    background-color: #cdeaf8;
+    border: 0;
+    padding: 10px 5px;
+    margin: 0;
+    transition: unset;
+    width: 90%;
+    display: inline;
+    font-size: 18px;
+    color: #0095db;
+    opacity: 1; /* Firefox */
+}
+
+.offerpage .search.course input{
+    background-color: #DBE0E4;
+    color: #71859D;
+}
+
+.offerpage .search ::placeholder {
+    color: #0095db;
+	opacity: 1; /* Firefox */
+}
+
+.offerpage .search.course ::placeholder {
+    color: #71859D;
+}
+
+.offerpage .search ::-webkit-input-placeholder,
+.offerpage .search ::-moz-placeholder,
+.offerpage .search :-ms-input-placeholder{
+    color: #0095db;
+}
+
+.offerpage .search.course ::-webkit-input-placeholder,
+.offerpage .search.course ::-moz-placeholder,
+.offerpage .search.course :-ms-input-placeholder{
+    color: #71859D;
+}
+
+.offerpage .search input:focus{
+    border: 0;
+    box-shadow: none;
+}
+
+.offerpage .search .icon{
+    color: #0095db;
+    padding: 0 10px 0 25px;
+    display: inline;
+    font-size: 18px;
+}
+
+.offerpage .search.course .icon{
+    color: #71859D;
+}
+
+.offerpage .search .fa-search:hover{
+    cursor: pointer;
+}
+
+.offerpage .header{
+    padding: 20px 0;
+}
+
+.offerpage .header .buttons_filter,
+.offerpage .header .result,
+.offerpage .header .export-catalog{
+    display: inline-block;
+}
+
+.offerpage .header .buttons_filter{
+    text-align: right;
+    width: 75%;
+}
+
+.offerpage .header .result{
+    width: 25%;
+}
+
+.offerpage .header .buttons_filter button.domain,
+.offerpage .header .buttons_filter button.origin,
+.offerpage .header .buttons_filter button.nature,
+.offerpage .header .buttons_filter button.duration,
+.offerpage .header .buttons_filter button.public{
+    padding: 2px 6px;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    margin-right: 5px;
+}
+
+.offerpage .header .export-catalog{
+    width: 63%;
+    margin-left: 5px;
+}
+
+.offerpage .header .export-catalog .btn{
+    min-width: 100%;
+}
+
+.offerpage .header .export-catalog .btn:hover{
+    background-color: #DBE0E4;
+}
+
+.offerpage .header .export-catalog .dropdown-toggle .fa{
+    padding-left: 10px;
+}
+
+.offerpage .header .buttons_filter button.domain::after,
+.offerpage .header .buttons_filter button.origin::after,
+.offerpage .header .buttons_filter button.nature::after,
+.offerpage .header .buttons_filter button.duration::after,
+.offerpage .header .buttons_filter button.public::after{
+    font-family: "fontawesome";
+    content: "\f00d";
+    padding-left: 5px;
+}
+
+.offerpage .header .dropdown-menu {
+    position: relative;
+    background-color: #fff;
+    padding: 0 15px;
+}
+
+.offerpage .header .dropdown-menu .dropdown-item {
+    display: block;
+    padding: 5px 15px;
+}
+
+.offerpage .header .dropdown-menu .dropdown-item i.fa{
+    padding-right: 5px;
+}
+
+.offerpage .clear{
+    clear: both;
+}
+
+.offerpage .form-item .form-label,
+.offerpage .mform .fitem div.fitemtitle,
+.offerpage .userprofile dl.list dt,
+.offerpage .form-horizontal .control-label{
+    width: 0px !important;
+}
+
+.offerpage .form-item .form-setting,
+.offerpage .form-item .form-description,
+.offerpage .mform .fitem .felement,
+.offerpage #page-mod-forum-search .c1,
+.offerpage .mform .fdescription.required,
+.offerpage .userprofile dl.list dd, .form-horizontal .controls {
+    margin-left: 0px;
+}
+
+.offerpage .mform fieldset.collapsible legend a.fheader{
+    margin: 0 10px;
+    padding: 0;
+    background: none;
+    display: block;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+}
+
+.offerpage .mform fieldset.collapsible legend a.fheader::after{
+    font-family: "fontawesome";
+    content: "\f0dd";
+    color: #fff;
+    float: right;
+}
+
+.offerpage .mform fieldset.collapsible.collapsed legend a.fheader::after{
+    font-family: "fontawesome";
+    content: "\f0de";
+    color: #fff;
+    float: right;
+}
+
+.offerpage .filter-formation .form-item,
+.offerpage .filter-course .form-item,
+.mform .fitem{
+    padding-left: 10px;
+}
+
+.offerpage .filter-formation{
+    background-color: #0095db;
+    color: #fff;
+}
+
+.offerpage .filter-course{
+    background-color: #71859D;
+    color: #fff;
+}
+
+.offerpage .mform .collapsible-actions{
+    display: none;
+}
+
+.offerpage .mform #fgroup_id_origin_group{
+    height:250px;
+    overflow:scroll;
+    overflow-x:hidden;
+    margin-right: 10px;
+}
+
+.offerpage .mform .domain-checkbox{
+    display: none;
+}
+
+.offerpage .mform .domain-checkbox:checked + label {
+    background-color: #fff;
+    color: #0095db;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.offerpage .filter-course .domain-checkbox:checked + label {
+    background-color: #fff;
+    color: #000;
+    border-radius: 4px;
+    padding: 5px 10px;
+}
+
+.offerpage .mform .domain-checkbox:checked + label::before {
+    font-family: "fontawesome";
+    content: "\f00c";
+    padding-right: 5px;
+}
+
+.offerpage .mform .domain-checkbox + label:hover {
+    color: #000;
+}
+
+.offerpage legend.ftoggler{
+    border:none;
+}
+
+.offerpage .mform ::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+.offerpage ::-webkit-scrollbar-track {
+    background: none;
+}
+
+/* Handle */
+.offerpage ::-webkit-scrollbar-thumb {
+    background: #fff;
+}
+
+/* Handle on hover */
+.offerpage ::-webkit-scrollbar-thumb:hover {
+    background: #fff;
+}
+
+.offerpage .custom-control-input:checked{
+    color:#fff;
+    background-color:#0095db;
+}
+
+/* Tiles */
+.grid__item {
+    float: left;
+    min-height: 1px;
+    vertical-align: top;
+    width: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.offerpage #region-main ul.tiles,
+.offerpage #region-main ul.offerdetail{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li.grid__item.item-row{
+    padding: 0 40px 40px 0;
+}
+
+li.grid__item.item-row .content{
+    background-color: #FFF;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.05);
+    border-radius: 2px;
+    border: solid 1px rgba(0,0,0,.05);
+}
+
+li.grid__item.item-row .content .title,
+li.grid__item.item-row .content .origin,
+li.grid__item.item-row .content .more{
+    text-align: center;
+    padding: 10px 15px;
+}
+
+li.grid__item.item-row .content .title{
+    height: 60px;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+li.grid__item.item-row .content .origin{
+    padding: 0 10px 10px;
+    color: #999;
+    font-size: 13px
+}
+
+li.grid__item.item-row .content .more{
+    border-top: solid 1px rgba(0, 0, 0, 0.05);
+    background-color: #fafafa;
+    color: #0095db;
+}
+
+li.grid__item.item-row .content .more a{
+    color: #0095db;
+}
+
+@media only screen and (max-width: 1900px) and (min-width: 1500px){
+    .offerpage .header .buttons_filter{
+        width: 68%;
+    }
+
+    .offerpage .header .result{
+        width: 32%;
+    }
+
+    .offerpage .header .export-catalog{
+        width: 59%;
+    }
+}
+
+@media only screen and (min-width: 4001px) {
+    .large--one-quarter{
+        width: 16%;
+    }
+    #region-main .large--one-quarter:nth-child(6n+1){
+        clear: both;
+    }
+}
+
+@media only screen and (max-width: 4000px) and (min-width: 1200px){
+    .large--one-quarter{
+        width: 25%;
+    }
+    #region-main .large--one-quarter:nth-child(4n+1){
+        clear: both;
+    }
+}
+
+@media screen and (max-width: 1599px){
+    ul li.grid__item.item-row {
+        padding: 0 10px 20px;
+    }
+}
+
+@media only screen and (max-width: 1499px) and (min-width: 1200px){
+    li.grid__item.item-row .content .title{
+        height: 80px;
+    }
+
+    .offerpage #detailModal .modal .modal-body {
+        max-height: 80vh !important;
+    }
+
+    .offerpage .header .buttons_filter{
+        width: 65%;
+    }
+
+    .offerpage .header .result{
+        width: 35%;
+    }
+
+    .offerpage .header .export-catalog{
+        width: 59%;
+    }
+}
+
+@media only screen and (max-width: 1199px) and (min-width: 969px){
+    #region-main .post-large--one-third {
+        width: 33.333%;
+    }
+    
+    #region-main .post-large--one-third:nth-child(3n+1){
+        clear: both;
+    }
+
+    li.grid__item.item-row .content .title{
+        height: 100px;
+    }
+
+    .offerpage .header .buttons_filter{
+        width: 55%;
+    }
+
+    .offerpage .header .result{
+        width: 45%;
+    }
+
+    .offerpage .header .export-catalog{
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 1068px){
+    .offerpage .search input{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 968px){
+    .offerpage .header .buttons_filter{
+        width: 100%;
+    }
+
+    .offerpage .header .result{
+        width: 100%;
+    }
+
+    .offerpage .header .export-catalog{
+        width: 31%;
+    }
+}
+
+@media only screen and (max-width: 968px) and (min-width: 769px){
+    #region-main .large--one-half {
+        width: 50%;
+    }
+
+    li.grid__item.item-row .content .title{
+        height: 80px;
+    }
+
+    .offerpage .search{
+        margin-left: -35px;
+    }
+
+    .offerpage .search input{
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 768px) and (min-width: 569px){
+    #region-main .medium--one-half {
+        width: 50%;
+    }
+
+    #region-main .medium--one-half:nth-child(2n+1){
+        clear: both;
+    }
+
+    .offerpage .search{
+        margin-left: -35px;
+    }
+
+    .offerpage .search input{
+        width: 80%;
+    }
+
+    .offerpage .header .export-catalog{
+        width: 39%;
+    }
+}
+
+@media only screen and (max-width: 768px) and (orientation:portrait){
+	body{
+		padding:0 !important;
+	}
+
+	.navbar-fixed-top, .navbar-fixed-bottom, .navbar-static-top{
+		margin: 0 !important;
+	}
+
+	.offerpage .header{
+		padding: 20px 15px !important;
+	}
+
+	.offerpage #region-main ul.tiles{
+		padding: 0 15px !important;
+	}
+
+	.offerpage .header .buttons_filter button{
+		margin-right: 0 !important;
+	}
+
+    .offerpage #detailModal .modal .modal-footer{
+        display: none;
+    }
+
+    .offerpage #detailModal .modal .modal-header .btn,
+    .offerpage #detailModal .modal .modal-footer .btn{
+        float: none !important;
+    }
+
+    .offerpage #detailModal .modal .modal-body {
+        max-height: 69vh; !important;
+    }
+
+    .offerpage #detailModal .modal .modal-header .actions,
+    .offerpage #detailModal .modal .modal-footer .actions{
+        height: auto !important;
+    }
+}
+
+@media screen and (max-width: 568px){
+    ul li.grid__item.item-row{
+        margin-bottom: 20px;
+        padding: 0;
+    }
+
+    .offerpage .search{
+        margin-left: -37px;
+    }
+
+    .offerpage .search input{
+        width: 80%;
+    }
+
+    .offerpage #detailModal .modal .modal-body ul.offerdetail li:first-child,
+    .offerpage #detailModal .modal .modal-body ul li.domain.with-video{
+        padding-top: 15px !important;
+    }
+
+    .offerpage #detailModal .modal .modal-body .video-teaser{
+        width: 100% !important;
+        float: none !important;
+    }
+    .offerpage #detailModal .modal .modal-body ul li.domain.with-video,
+    .offerpage #detailModal .modal .modal-body ul li.description.with-video{
+        width: 100% !important;
+    }
+
+    .offerpage #detailModal .modal .modal-body .itemtitle{
+        width: 30% !important;
+    }
+
+    .offerpage #detailModal .modal .modal-body .itemelement{
+        width: 70% !important;
+    }
+
+    .offerpage #detailModal .modal .modal-body ul li .half-content{
+        width: 100% !important;
+    }
+
+    .offerpage .header .export-catalog{
+        width: 56%;
+    }
+}
+
+@media only screen and (max-width: 380px) and (orientation:portrait){
+    .offerpage .search input {
+        width: 75%;
+    }
+
+    .offerpage .header .export-catalog {
+        width: 60%;
+    }
+}
+
+/* Modals */
+.offerpage #detailModal .modal-backdrop,
+.offerpage #detailModal .modal-backdrop.fade.in,
+.offerpage #detailModal .modal-backdrop.fade.show {
+    opacity: 0.4;
+}
+
+.offerpage #detailModal .modal{
+    width: 100%;
+    height: 100% !important;
+    left: auto !important;;
+    right: 0;
+    top: 0% !important;
+}
+
+.offerpage #detailModal .modal.fade {
+    right: -100% !important;
+    webkit-transition: opacity .3s linear, right .3s ease-out;
+    -moz-transition: opacity .3s linear, right .3s ease-out;
+    -o-transition: opacity .3s linear, right .3s ease-out;
+    transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+.offerpage #detailModal .modal.fade.in,
+.offerpage #detailModal .modal.fade.show {
+    right: 0% !important;
+}
+
+.offerpage #detailModal .modal .close:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.offerpage #detailModal .modal .modal-dialog {
+    position: absolute;
+    max-width: 100%;
+    margin: 0 auto;
+    width: 50%;
+    right: 0;
+    height: 100%;
+    background: #fff;
+}
+
+.offerpage #detailModal .modal .modal-dialog .modal-content {
+    position: initial;
+    border: 0;
+}
+
+.offerpage #detailModal .modal .modal-title{
+    display: inline-block;
+    width: 95%;
+}
+.offerpage #detailModal .modal .modal-header{
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid #e9ecef;
+    border-top-left-radius: .3rem;
+    border-top-right-radius: .3rem;
+}
+
+.offerpage #detailModal .modal .modal-header,
+.offerpage #detailModal .modal .modal-footer{
+    background-color: #fafafa;
+    display: block;
+}
+
+.offerpage #detailModal .modal .modal-header .title{
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+.offerpage #detailModal .modal .modal-footer{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: auto;
+    left: 0;
+    text-align: left;
+}
+
+.offerpage #detailModal .modal .modal-header .close{
+    padding: 10px 6px;
+    margin: -1rem -1rem -1rem auto;
+    font-size: 22px;
+    font-weight: normal;
+    opacity: 1;
+    text-shadow: none;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+}
+
+.offerpage #detailModal .modal .modal-header .close:hover{
+    background: none;
+    opacity: 1;
+    color: #333333;
+}
+
+.offerpage #detailModal .modal .modal-header .close::before{
+    font-family: "fontawesome";
+    content: "\f057";
+    color: #0095db;
+}
+
+.offerpage #detailModal .modal .modal-header .close:hover::before{
+    color: #333333;
+}
+
+.offerpage #detailModal .modal .modal-header .close span{
+    display: none;
+}
+
+.offerpage #detailModal .modal .modal-header .btn,
+.offerpage #detailModal .modal .modal-footer .btn{
+    color: #fff;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-weight: normal;
+    margin: 0;
+    background-color: #0095db;
+    float: right;
+    text-shadow: none;
+}
+
+.offerpage #detailModal .modal .modal-header,
+.offerpage #detailModal .modal .modal-footer{
+    padding-top: 10px;
+}
+
+.offerpage #detailModal .modal .modal-header .actions,
+.offerpage #detailModal .modal .modal-footer .actions{
+    height: 25px;
+}
+
+.offerpage #detailModal .modal .modal-header .actions{
+    margin-top: 10px;
+}
+
+.offerpage #detailModal .modal .modal-header .btn::before,
+.offerpage #detailModal .modal .modal-footer .btn::before{
+    font-family: "fontawesome";
+    content: "\f04b";
+    color: #fff;
+    padding-right: 10px;
+}
+
+.offerpage #detailModal .modal .modal-header .link,
+.offerpage #detailModal .modal .modal-footer .link{
+    color: #0095db;
+    padding: 0 10px 0 0;
+    margin-top: 10px;
+    float:left;
+}
+
+.offerpage #detailModal .modal .modal-header .link::before,
+.offerpage #detailModal .modal .modal-footer .link::before{
+    font-family: "fontawesome";
+    color: #0095db;
+    padding-right: 5px;
+}
+
+.offerpage #detailModal .modal .modal-header .pdf.link::before,
+.offerpage #detailModal .modal .modal-footer .pdf.link::before{
+    content: "\f1c1";
+}
+
+.offerpage #detailModal .modal .modal-header .shortlink.link::before,
+.offerpage #detailModal .modal .modal-footer .shortlink.link::before{
+    content: "\f0c1";
+}
+
+.offerpage #detailModal .modal .modal-header .restore.link::before,
+.offerpage #detailModal .modal .modal-footer .restore.link::before{
+    content: "\f021";
+}
+
+.offerpage #detailModal .modal .modal-header .restore,
+.offerpage #detailModal .modal .modal-footer .restore{
+    border-left: 1px solid #e9ecef;
+    padding-left: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body{
+    max-height: 77vh;
+    overflow-y: scroll;
+}
+
+.offerpage #detailModal .modal .modal-body .itemtitle{
+    display: inline-block;
+    width: 20%;
+    float: left;
+    font-weight: bold;
+}
+
+.offerpage #detailModal .modal .modal-body .itemelement{
+    display: inline-block;
+    width: 80%;
+}
+
+.offerpage #detailModal .modal .modal-body ul.offerdetail ul{
+    list-style-type: disc;
+}
+
+.offerpage #detailModal .modal .modal-body ul.offerdetail ul li,
+.offerpage #detailModal .modal .modal-body ul.offerdetail ol li{
+    border: none;
+}
+
+.offerpage #detailModal .modal .modal-body ul.offerdetail li{
+    padding: 10px 0;
+    border-top: solid 1px #e9ecef;
+}
+
+
+.offerpage #detailModal .modal .modal-body ul.offerdetail li:first-child,
+.offerpage #detailModal .modal .modal-body ul li.domain.with-video{
+    padding-top: 0;
+    padding-bottom: 0;
+    border-top: none;
+}
+
+.offerpage #detailModal .modal .modal-body ul li.domain .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li.domain .itemelement{
+    padding-bottom: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body .video-teaser{
+    width: 50%;
+    float: right;
+}
+.offerpage #detailModal .modal .modal-body ul li.domain.with-video,
+.offerpage #detailModal .modal .modal-body ul li.description.with-video{
+    width: 50%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li.domain.with-video p,
+.offerpage #detailModal .modal .modal-body ul li.description.with-video p,
+.offerpage #detailModal .modal .modal-body ul li .authors p,
+.offerpage #detailModal .modal .modal-body ul li .formationframework p,
+.offerpage #detailModal .modal .modal-body ul .termuse p{
+    padding-right: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body ul li.description .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li.description .itemelement,
+.offerpage #detailModal .modal .modal-body ul li.objective .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li.objective .itemelement,
+.offerpage #detailModal .modal .modal-body ul li div.support .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li div.support .itemelement{
+    width: 100%;
+    float: none;
+    display: block;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .half-content{
+    width: 49%;
+    display: inline-block;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .collection,
+.offerpage #detailModal .modal .modal-body ul li .authors,
+.offerpage #detailModal .modal .modal-body ul li .leadtime,
+.offerpage #detailModal .modal .modal-body ul li .timepublished,
+.offerpage #detailModal .modal .modal-body ul li .rythmeformation,
+.offerpage #detailModal .modal .modal-body ul li .certification{
+    vertical-align: top;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .startdateformation,
+.offerpage #detailModal .modal .modal-body ul li .enddateformation,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeattendance,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeremote{
+    clear: both;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .startdateformation .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li .enddateformation .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeattendance .itemtitle,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeremote .itemtitle{
+    width: 30%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .startdateformation .itemelement,
+.offerpage #detailModal .modal .modal-body ul li .enddateformation .itemelement,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeattendance .itemelement,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeremote .itemelement{
+    width: 70%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .startdateformation,
+.offerpage #detailModal .modal .modal-body ul li .enddateformation,
+.offerpage #detailModal .modal .modal-body ul li .leadtimeattendance{
+    margin-bottom: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .leadtime .itemtitle{
+    width: 25%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .leadtime .itemelement{
+    width: 75%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .certification .itemtitle{
+    width: 60%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .certification .itemelement{
+    width: 40%;
+}
+
+
+.offerpage #detailModal .modal .modal-body ul li .origins .itemelement .originimage{
+    width: 80%;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .origins .itemelement .originimage img{
+    max-height: 72px;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .origins .itemelement .originimage img.dne-foad{
+    width: 50%;
+}
+
+.offerpage #detailModal .modal .modal-body ul.offerdetail li.objective ul{
+    list-style-type: disc;
+}
+
+.offerpage #detailModal .modal .modal-body ul.offerdetail li.objective ul li,
+.offerpage #detailModal .modal .modal-body ul.offerdetail li.objective ul li:first-child{
+    border: 0;
+    padding: 0;
+}
+.offerpage #detailModal .modal .modal-body ul li.origin-collection{
+    padding-top: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body ul li .origins,
+.offerpage #detailModal .modal .modal-body ul li .collection .itemtitle{
+    padding-top: 5px;
+}
+
+.offerpage #detailModal .modal .modal-body .itemelement .collectionimage,
+.offerpage #detailModal .modal .modal-body .itemelement .collectiontitle{
+    display: inline-block;
+}
+
+.offerpage #detailModal .modal .modal-body .itemelement .collectiontitle{
+    padding-left: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemtitle,
+.offerpage #detailModal .modal .modal-body .statistics .itemtitle.main{
+    float: none;
+    width: auto;
+    cursor: pointer;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemelement,
+.offerpage #detailModal .modal .modal-body .statistics .itemelement.main{
+    display: block;
+    width: 100%;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemelement ul{
+    margin: 0;
+}
+
+.offerpage #detailModal .modal .modal-body .statistics .itemelement .matricule,
+.offerpage #detailModal .modal .modal-body .statistics .itemelement .datause{
+    margin-top: 20px;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemelement .note h5{
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemelement .note .note-content{
+    background-color: #fafafa;
+    padding: 5px;
+    border: #ecf0f1 solid 1px;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemtitle:before,
+.offerpage #detailModal .modal .modal-body .statistics .itemtitle.main:before{
+    font-family: 'fontawesome';
+    content: "\f0d7";
+    color: #95a5a6;
+    font-weight: 900;
+    padding-right: 10px;
+}
+
+.offerpage #detailModal .modal .modal-body .notes .itemtitle.collapsed:before,
+.offerpage #detailModal .modal .modal-body .statistics .itemtitle.collapsed.main:before{
+    content: "\f0da";
+}
+
+.offerpage #page-footer {
+    border: 0;
+    margin: 0;
+    padding-top: 0;
+}
+
+.offerpage .ui-dialog{
+    z-index: 1060;
+}
+
+.offerpage #restore_course_form{
+    z-index: 1070;
+}
+
+.offerpage .after-restore-links a.restore-course-view{
+    background: #0095db;
+    color: #fff;
+}
+
+.offerpage .after-restore-links a{
+    text-shadow: none;
+    padding: 10px 16px;
+    border: 0;
+    transition: background 0.5s;
+}
+
+.offerpage .after-restore-links a:hover{
+    color: #fff;
+    background: #4f4f4f;
+    outline: 0;
+}
+
+/* CSS DE LA MODAL DE SELECTION DES PUBLICS*/
+
+.publics-modal.fade {
+    display: none;
+}
+
+.publics-modal.fade.in {
+    top: 10% !important;
+}
+
+.publics-modal .left-column {
+    display: inline-block;
+    width: 50%;
+    float: left;
+    background-color: #0095db;
+    color : white;
+    padding: 0 10px;
+}
+.publics-modal .right-column {
+    display: block;
+    margin-left: 50%;
+    background-color: #0095db;
+    color : white;
+    padding: 0 10px;
+}
+.publics-modal .modal-body .publics {
+    /*background-color: #0095db;*/
+    /*color : white;*/
+    margin-bottom: 10px;
+    padding: 5px 0;
+    border-radius: 4px;
+}
+
+.publics-modal .modal-body{
+    max-height: 500px;
+}
+.publics-modal .left-column div,.publics-modal .right-column div{
+    margin-bottom: 5px;
+}
+.publics-modal .modal-header .close {
+    margin-top: -32px;
+}
+.publics-modal .modal-footer button {
+    background-color: #0095db;
+}
+.publics-modal .modal-footer button:hover,.modal-footer button:focus {
+    background-color: #4f4f4f;
+}
+.publics-modal .note{
+    margin-top: 20px;
+    font-size: 12px;
+    font-style: italic;
+    text-align: center;
+}
+
+.publics-modal #fitem_id_publicsformsubmitbutton {
+    margin: 0;
+    padding: 0;
+}
+
+.publics-modal #fitem_id_publicsformsubmitbutton .fsubmit {
+    text-align: center;
+}
+
+
+.publics-modal .notif{
+    margin-top: 15px;
+}
+@media screen and (max-width: 650px) {
+    .publics-modal .left-column {
+        width: 100%;
+
+    }
+    .publics-modal .right-column {
+        display: block;
+        margin-left: 0;
+    }
+
+    .publics-modal .modal-body{
+        padding: 15px;
+    }
+
+    .publics-modal{
+        left : 2.5%;
+        width: 95%;
+        margin-left: 0;
+        z-index: -1000;
+    }
+}
+
+
+/*------------------------------------*\
+	Pagination
+\*------------------------------------*/
+div.easyPaginateNav{
+    width: 100%;
+    clear: both;
+    text-align: center;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+.easyPaginateNav span {
+    cursor:pointer;
+}
+
+.easyPaginateNav a, .easyPaginateNav span {
+    color: #0095db;
+    font-size:16px;
+    line-height:24px;
+    font-weight: normal;
+    text-align: center;
+    border: 1px solid #ddd;
+    min-width: 14px;
+    padding: 0 7px;
+    margin: 0 5px 0 0;
+    border-radius: 3px;
+    background: #efefef; /* Old browsers */
+    background: -moz-linear-gradient(top, #ffffff 0%, #efefef 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#efefef)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top, #ffffff 0%,#efefef 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top, #ffffff 0%,#efefef 100%); /* Opera11.10+ */
+    background: -ms-linear-gradient(top, #ffffff 0%,#efefef 100%); /* IE10+ */
+    background: linear-gradient(top, #ffffff 0%,#efefef 100%); /* W3C */
+}
+
+.easyPaginateNav a:hover, .easyPaginateNav li:not(.disabled):not(.active) span:hover {
+    text-decoration: none;
+    background: #FCFCFC;
+}
+
+.easyPaginateNav .current {
+    background: #0095db;
+    color: #FFF;
+    border-color: #0095db;
+    box-shadow: 0 1px 0 rgba(255,255,255,1), 0 0 2px rgba(0, 0, 0, 0.3) inset;
+    cursor: default;
+}
+
+.easyPaginateNav .ellipse {
+    background: none;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: bold;
+    cursor: default;
+}

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script>
+            function subst() {
+                var vars={};
+                var x=window.location.search.substring(1).split('&');
+                for (var i in x) {var z=x[i].split('=',2);vars[z[0]] = unescape(z[1]);}
+                var x=['frompage','topage','page','webpage','section','subsection','subsubsection'];
+                for (var i in x) {
+                    var y = document.getElementsByClassName(x[i]);
+                    for (var j=0; j<y.length; ++j) y[j].textContent = vars[x[i]];
+                }
+            }
+        </script>
+        <style>
+            html{
+                font-family: 'Open Sans', sans-serif
+            }
+            body{
+                border:0;
+                padding-top: 10mm;
+                margin-top: 10mm;
+            }
+        </style>
+    </head>
+    <body onload="subst()">
+        <table>
+            <tr>
+                <td style="text-align:center"></td>
+            </tr>
+        </table>
+    </body>
+</html>

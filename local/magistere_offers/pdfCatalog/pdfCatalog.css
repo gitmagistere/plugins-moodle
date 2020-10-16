@@ -1,0 +1,285 @@
+html,body{
+    height: 100%;
+}
+body{
+    position: relative;
+    font-size: 12px;
+}
+header h1.header,
+header span.header{
+    font-size: 14px;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+    display: block;
+}
+header .title{
+    width: 79%;
+    display: inline-block;
+}
+header .title h2{
+    color:#0095db;
+    border-bottom:5px solid #CCC;
+    padding-bottom: 10px;
+}
+header .title-img{
+    margin-left:5px;
+    width: 20%;
+    display: inline-block;
+    vertical-align: top;
+}
+header .title-img.reseau-canope img{
+    width: 80%;
+}
+header .title-img.dne-foad img{
+    width: 50%;
+}
+footer{
+    border-bottom: 1px solid #CCCCCC;
+    padding: 1em 5px 0 5px;
+}
+.collection{
+    clear: both;
+}
+.collection img{
+    vertical-align: middle;
+}
+
+.collection span{
+    padding-left: 5px;
+    font-weight: bold;
+    color: #0095db;
+    font-size: 14px;
+}
+
+.left-column{
+    width: 35%;
+    display: inline-block;
+    border: solid #888888 1px;
+    border-radius: 15px;
+    vertical-align: top;
+    margin-top: 20px;
+    padding: 10px;
+}
+
+.right-column{
+    width: 58%;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px 0 0 20px;
+    vertical-align: top;
+}
+
+.left-column .header .fa,
+.right-column .header .fa{
+    vertical-align: middle;
+}
+
+.left-column .header .fa::before,
+.right-column .header .fa::before{
+    font-weight: normal;
+}
+
+.left-column .header img,
+.right-column .header img{
+    vertical-align: middle;
+}
+
+.left-column .header span,
+.right-column .header span{
+    padding-left: 5px;
+    font-weight: bold;
+}
+
+.left-column .content,
+.right-column .content{
+    word-wrap: break-word;
+    text-align: justify;
+}
+
+.left-column .publics,
+.left-column .publics .content,
+.left-column .tps-en-presence .content,
+.left-column .tps-a-distance .content{
+    padding-top: 10px;
+}
+
+.left-column .mise-oeuvre{
+    padding-top: 20px;
+}
+
+.left-column .tps-en-presence,
+.left-column .tps-a-distance{
+    display: inline-block;
+    padding-top: 10px;
+}
+
+.left-column .tps-en-presence .title,
+.left-column .tps-a-distance .title{
+    font-weight: bold;
+}
+
+.right-column .origine,
+.right-column .updatedate,
+.right-column .authors,
+.right-column .validateby{
+    display: inline-block;
+    padding-top: 20px;
+    vertical-align: top;
+}
+
+.right-column .origine,
+.right-column .origine .content,
+.right-column .updatedate .content,
+.right-column .authors .content,
+.right-column .validateby .content{
+    padding-top: 10px;
+}
+
+.left-column .column,
+.right-column .column{
+    width: 48%;
+}
+
+.right-column .updatedate.column,
+.right-column .validateby.column{
+    padding-left: 20px;
+}
+
+.right-column .updatedate .header span,
+.right-column .authors .header span,
+.right-column .validateby .header span{
+    padding-left: 0;
+}
+
+.footer{
+
+    text-align: center;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+.footer a{
+    text-decoration: none;
+    color: #000;
+    font-size: 14pt;
+}
+
+.cover{
+    height: 100%;
+    position: relative;
+    line-height: 1.4;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 18pt;
+}
+
+.cover .icon-header img,
+.cover .content{
+    margin: auto;
+    display: block;
+}
+
+.cover .icon-magistere img{
+    padding-top: 150px;
+    width: 35%;
+}
+
+.cover .content{
+    padding-top: 100px;
+}
+
+.cover .content h1{
+    color: #0095db;
+    font-size: 40pt;
+}
+
+.cover .content .critere h2{
+    padding-top: 50px;
+    font-size: 20pt;
+}
+
+.cover .footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+.cover .footer img.icon-men{
+    width: 20%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.cover .footer .licence img{
+    width: 2%;
+}
+
+.cover .footer .licence a{
+    text-decoration: none;
+}
+
+.cover .footer .product-by,
+.cover .footer .licence{
+    display: block;
+    text-align: center;
+}
+
+.cover .footer .product-by{
+    font-size: 20pt;
+}
+
+.fa,
+.fas,
+.far,
+.fal,
+.fab {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: normal;
+}
+
+.fa,
+.far,
+.fas {
+    font-family: 'Font Awesome 5 Free';
+}
+
+
+.far {
+    font-weight: 400;
+}
+
+.fa-2x {
+    font-size: 2em;
+}
+
+.fa-bullseye:before {
+    content: "\f140";
+}
+
+.fa-users:before {
+    content: "\f0c0";
+}
+
+.fa-clock:before {
+    content: "\f017";
+}
+
+.fa-search-plus:before {
+    content: "\f00e";
+}
+
+.fa-comments:before {
+    content: "\f086";
+}
+
+.fa-at:before {
+    content: "\f1fa";
+}
