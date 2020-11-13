@@ -1,0 +1,223 @@
+#page-mod-coursebadges-mod .mform #id_actionbadgesmanagement .fcontainer{
+    background-color: #fff;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management{
+    width: 95%;
+    background-color: #fff;
+    margin: 0 auto;
+}
+
+#page-mod-coursebadges-view .mform .badges-management {
+    width: 100%;
+    background-color: #fff;
+}
+
+#page-mod-coursebadges-mod .mform .list-left,
+#page-mod-coursebadges-mod .mform .list-right {
+    width: 45%;
+    padding: 0;
+}
+
+#page-mod-coursebadges-view .mform .list-left,
+#page-mod-coursebadges-view .mform .list-right,
+#page-mod-coursebadges-view .mform .read-only {
+    width: 30%;
+    padding: 0;
+}
+
+#page-mod-coursebadges-mod .mform .list-left,
+#page-mod-coursebadges-mod .mform .list-right,
+#page-mod-coursebadges-view .mform .list-left,
+#page-mod-coursebadges-view .mform .list-right,
+#page-mod-coursebadges-view .mform .read-only {
+    vertical-align: top;
+}
+
+#page-mod-coursebadges-mod .mform .list-arrows,
+#page-mod-coursebadges-view .mform .list-arrows,
+#page-mod-coursebadges-view .mform .blank-column{
+    width: 5%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+#page-mod-coursebadges-mod .mform .list-arrows button,
+#page-mod-coursebadges-view .mform .list-arrows button {
+    display: block;
+    margin: 10px auto;
+    padding: 8px 15px;
+    color: #727272;
+}
+
+#page-mod-coursebadges-mod .mform .list-arrows button:hover,
+#page-mod-coursebadges-view .mform .list-arrows button:hover {
+    color: #fff;
+}
+
+#page-mod-coursebadges-mod .mform .list-arrows button i,
+#page-mod-coursebadges-view .mform .list-arrows button i{
+    font-size: 25px;
+}
+
+#page-mod-coursebadges-mod .mform #id_changebadgeselections {
+    color: #fff;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #da4f49;
+}
+
+#page-mod-coursebadges-mod .mform #id_changebadgeselections:hover,
+#page-mod-coursebadges-mod .mform #id_changebadgeselections:focus,
+#page-mod-coursebadges-mod .mform #id_changebadgeselections:active,
+#page-mod-coursebadges-mod .mform #id_changebadgeselections.active,
+#page-mod-coursebadges-mod .mform #id_changebadgeselections.disabled,
+#page-mod-coursebadges-mod .mform #id_changebadgeselections[disabled] {
+    color: #fff;
+    background-color: #3d3d3d;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr td.course-badges,
+#page-mod-coursebadges-mod .mform .badges-management tr td.pre-select-badges,
+#page-mod-coursebadges-view .mform .badges-management tr td.pre-select-badges,
+#page-mod-coursebadges-view .mform .badges-management tr td.selected-badges {
+    background-color: #f4f5f7;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group {
+    list-style-type: none;
+    margin: 10px;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item {
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Opera and Firefox */
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item {
+    margin: 10px 0;
+    padding: 10px 0;
+    background-color: #fff;
+    border-radius: 5px;
+    border: 1px #e6e6e6 solid;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr td.course-badges ul.list-group li.list-group-item,
+#page-mod-coursebadges-mod .mform .badges-management tr td.pre-select-badges ul.list-group li.list-group-item,
+#page-mod-coursebadges-view .mform .badges-management tr td.pre-select-badges ul.list-group li.list-group-item,
+#page-mod-coursebadges-view .mform .badges-management tr td.selected-badges ul.list-group li.list-group-item {
+    box-shadow: 2px 2px 5px #e6e6e6;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr td .title,
+#page-mod-coursebadges-view .mform .badges-management tr td .title {
+    height: 40px;
+    width: 100%;
+    display: table;
+    background-color: #fff;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr td .title h4,
+#page-mod-coursebadges-view .mform .badges-management tr td .title h4 {
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr td.course-badges ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-mod .mform .badges-management tr td.pre-select-badges ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-view .mform .badges-management tr td.pre-select-badges ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-view .mform .badges-management tr td.selected-badges ul.list-group li.list-group-item .badge-content {
+    cursor: pointer;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr td.course-badges.no-modif ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-mod .mform .badges-management tr td.pre-select-badges.no-modif ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-view .mform .badges-management tr td.pre-select-badges.no-modif ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-view .mform .badges-management tr td.selected-badges.no-modif ul.list-group li.list-group-item .badge-content {
+    cursor: auto;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management tr.footer,
+#page-mod-coursebadges-view .mform .badges-management tr.footer{
+    height: 20px;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-content,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-content {
+    display: inline-block;
+    width: 90%;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item.active,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item.active {
+    border: #0095db 1px solid;
+    color: inherit;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-content img,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-content img {
+    display: inline-block;
+    width: 45px;
+    margin-left: 10px;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-content .badge-title,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-content .badge-title {
+    padding-left: 2%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#page-mod-coursebadges-view .mform .read-only ul.list-group {
+    margin: 0;
+}
+
+#page-mod-coursebadges-view .mform .read-only ul.list-group li.list-group-item .badge-content {
+    margin: 0 auto;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .action-btn,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .action-btn {
+    display: inline-block;
+    width: 10%;
+    cursor: pointer;
+    text-align: center;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .action-btn i,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .action-btn i{
+    font-size: 20px;
+    color: #727272;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-detail,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-detail {
+    display: none;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-detail .badge-description,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-detail .badge-description {
+    border-top: 1px solid #e6e6e6;
+    margin-top: 10px;
+    padding: 10px 10px 0 10px;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-detail .badge-description span,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-detail .badge-description span{
+    font-weight: bold;
+}
+
+#page-mod-coursebadges-mod .mform .badges-management ul.list-group li.list-group-item .badge-information,
+#page-mod-coursebadges-view .mform .badges-management ul.list-group li.list-group-item .badge-information {
+    padding: 0 10px;
+}
