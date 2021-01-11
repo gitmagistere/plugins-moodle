@@ -1,0 +1,61 @@
+{{!
+    This file is part of Moodle - http://moodle.org/
+
+    Moodle is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    Moodle is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
+}}
+
+<div id = "fontawesomepickercustom_setting">
+    {{#error}}
+        <div class="alert">{{error}}</div>
+    {{/error}}
+
+    {{^error}}
+        <div class="form-textarea" style ="display: none">
+            <textarea id="selectedicons" rows="{{rows}}" cols="{{cols}}" id="{{id}}" name="{{name}}" spellcheck="true" class="{{#forceltr}}text-ltr{{/forceltr}}">{{value}}</textarea>
+        </div>
+        <h3 style="margin-top: 0px;">{{# str }} selectedicons, atto_fontawesomepicker {{/ str }}</h3>
+        <div id="selected">
+            <p>{{# str }} loading, atto_fontawesomepicker {{/ str }}</p>
+
+            {{#selected}}
+                <div class ="icon" style = "display : none" data-unicode = "{{unicode}}" data-name ="{{name}}" data-type = "{{type}}">
+                    <i class="{{type}} fa-{{name}} fa-4x"></i>
+                    <i class="fa fa-check-circle fa-2x actionselected"></i>
+                    <span>{{name}}</span>
+                </div>
+            {{/selected}}
+
+
+        </div>
+        <h3>{{# str }} search, atto_fontawesomepicker {{/ str }}</h3>
+        <div id ="searchcontainer">
+            <div id="searchbar">
+                <input type="text"/>
+            </div>
+            <div id="choices">
+                <p id="load">{{# str }} loading, atto_fontawesomepicker {{/ str }}</p>
+                {{#icons}}
+                    <div class ="icon" style = "display : none" data-unicode = "{{unicode}}" data-name ="{{name}}" data-type = "{{type}}">
+                        <i class="{{type}} fa-{{name}} fa-4x"></i>
+                        <span>{{name}}</span>
+                    </div>
+                {{/icons}}
+            </div>
+            <div style="display:flex; justify-content : center">
+                <button id="showmore">{{# str }} seemore, atto_fontawesomepicker {{/ str }}</button>
+            </div>
+        </div>
+    {{/error}}
+
+</div>

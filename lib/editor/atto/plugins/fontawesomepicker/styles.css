@@ -1,0 +1,122 @@
+.atto_fontawesomepicker_button .dropdown-menu {
+
+    list-style-type: none;
+    -webkit-columns: 3;
+    -moz-columns: 3;
+    columns: 3;
+    list-style-position: inside;
+}
+.atto_fontawesomepicker_button .dropdown-menu li a{
+    padding-left: 21px;
+    padding-right: 21px;
+    margin-left: 3px;
+    margin-right: 3px;
+    border: 1px solid lightgrey;
+
+    display: flex;
+    justify-content: center;
+}
+
+.atto_fontawesomepicker_button .dropdown-menu li a:empty {
+    border: none;
+    pointer-events: none;
+    cursor: default;
+    text-decoration: none;
+    height: 24px;
+}
+
+.atto_fontawesomepicker_button .dropdown-menu li a i{
+    color: lightgrey !important;
+}
+.atto_fontawesomepicker_button .dropdown-menu li a:nth-of-type(1){
+    margin-top: 0;
+}
+
+#fontawesomepickercustom_setting #searchcontainer{
+    width : 100%;
+}
+#fontawesomepickercustom_setting #searchbar{
+    display : flex;
+    margin-bottom : 5px;
+    margin-top : 10px;
+}
+#fontawesomepickercustom_setting #searchbar input{
+    flex: auto;
+    font-size: 30px;
+    padding-left : 5px;
+
+
+}
+#fontawesomepickercustom_setting #searchbar div{
+    padding : 5px
+}
+#fontawesomepickercustom_setting #choices, #selected{
+    width : 100%;
+
+    display: grid;
+    grid-row-gap : 5px;
+    grid-column-gap : 5px;
+    grid-template-columns: repeat(auto-fill, 100px);
+    padding : 5px;
+}
+
+#fontawesomepickercustom_setting #choices{
+    border-top : none;
+    /*height : 300px;*/
+    overflow-y: scroll;
+}
+#fontawesomepickercustom_setting #choices .icon, #fontawesomepickercustom_setting #selected .icon{
+    height : 100px;
+    display : flex;
+    justify-content : flex-end;
+    align-items : center;
+    flex-direction : column;
+    color : grey;
+    position : relative;
+    width: 100%;
+    padding-bottom: 5px;
+}
+#fontawesomepickercustom_setting #choices span, #fontawesomepickercustom_setting #selected span {
+    font-size: 12px;
+    text-align: center;
+    line-height: 12px;
+    margin-top: 5px;
+}
+
+#fontawesomepickercustom_setting #choices .icon:hover{
+    background-color : #c5c9ca;
+    cursor : pointer;
+}
+#fontawesomepickercustom_setting #choices .icon.selected:hover{
+    background-color : inherit;
+    cursor : initial;
+}
+
+#fontawesomepickercustom_setting .icon .actionremove{
+    width: 30px;
+    height: 30px;
+    color : red;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+#fontawesomepickercustom_setting .icon .actionremove:hover{
+    cursor: pointer;
+}
+#fontawesomepickercustom_setting .icon .actionselected{
+    width: 30px;
+    height: 30px;
+    color : green;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#fontawesomepickercustom_setting ~ .form-defaultinfo {
+    display: none;
+}
+
+.atto_fontawesomepicker_button .dropdown-menu li a:hover {
+    background-color: grey;
+    text-decoration: none;
+}
