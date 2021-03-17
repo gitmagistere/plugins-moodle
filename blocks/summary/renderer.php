@@ -3,6 +3,7 @@
 
 require_once($CFG->dirroot.'/course/format/modular/lib.php');
 
+
 class block_summary_renderer extends plugin_renderer_base {
 
     private $moduleBackground = array(
@@ -48,9 +49,11 @@ class block_summary_renderer extends plugin_renderer_base {
 
     private function render_node($node, $courseid, $canseehiddensections, $classes)
     {
-        if(!$node->uservisible && !$canseehiddensections){
+        /* 3900 THE 11/08/2020 */
+        if((!$node->visible || !$node->uservisible) && !$canseehiddensections) {
             return '';
         }
+        /* 3900 */
 
         $url = new moodle_url('/course/view.php', array('id' => $courseid, 'section' => $node->numsection));
         if($node->visible == 0) {// && $node->type != format_modular::$MODULE_TYPE){
@@ -106,7 +109,7 @@ class block_summary_renderer extends plugin_renderer_base {
 
     public function module_menu($tree, $moduleslist, $canseehiddensections)
     {
-        $courseurl = new moodle_url('/course/view.php', array('id' => $tree->courseid , 'section' => 1));
+        $courseurl = new moodle_url('/course/view.php', array('id' => $tree->courseid));
 
         $homereturn = '<div class="homereturn"><a href="'.$courseurl.'">'.get_string('homereturnlabel', 'block_summary').'</a></div>';
 
@@ -131,7 +134,7 @@ class block_summary_renderer extends plugin_renderer_base {
         $options = array();
 
         foreach($moduleslist as $module){
-            if(!$module->visible && !$canseehiddensections || $tree->id == $module->id){
+            if((!$module->visible || !$module->uservisible) && !$canseehiddensections || $tree->id == $module->id){
                 continue;
             }
 
@@ -218,5 +221,28 @@ class block_summary_renderer extends plugin_renderer_base {
         }
 
         return $this->moduleBackground[$section->color];
+    }
+    protected function block_header(block_contents $bc) {
+
+        $title = '';
+        if ($bc->title) {
+            $attributes = array();
+            if ($bc->blockinstanceid) {
+                $attributes['id'] = 'instance-'.$bc->blockinstanceid.'-header';
+            }
+            $title = html_writer::tag('h2', $bc->title, $attributes);
+        }
+
+        $blockid = null;
+        if (isset($bc->attributes['id'])) {
+            $blockid = $bc->attributes['id'];
+        }
+        $controlshtml = $this->block_controls($bc->controls, $blockid);
+
+        $output = '';
+        if ($title || $controlshtml) {
+            $output .= html_writer::tag('div', html_writer::tag('div', html_writer::tag('div', '', array('class'=>'block_action')). $title . $controlshtml, array('class' => 'title')), array('class' => 'header'));
+        }
+        return $output;
     }
 }

@@ -80,10 +80,6 @@ class block_summary extends block_base {
                 $this->title = get_string('modulesummarytitle', 'block_summary');
             }
 
-        }else if($COURSE->format == 'topics' && has_capability('block/summary:canseesectionzero', context_course::instance($COURSE->id))){
-            $url = new moodle_url('/course/view.php', array('id' => $COURSE->id, 'szero' => 1));
-
-            $this->title = html_writer::link($url, $this->title);
         }
     }
 
@@ -152,7 +148,8 @@ class block_summary extends block_base {
     		$DB->delete_records('block_summary_cache', array('courseid' => $course->id));
     	}
     }
-    
+
+
     function get_content() {
         global $PAGE, $DB, $COURSE;
         
@@ -221,7 +218,7 @@ class block_summary extends block_base {
 
         foreach($tree as $key=>$section)
         {
-            if ($section->uservisible == 0 && !$this->canseehiddensection)
+            if ($section->uservisible == 0 && !$section->availableinfo && !$this->canseehiddensection)
             {
                 unset($tree[$key]);
                 continue;
@@ -234,16 +231,14 @@ class block_summary extends block_base {
                 $tree[$key]->name = '(Section '.$section->weight.')';
             }
 
-            if ($section->visible == 0)
-            {
-                $tree[$key]->name .= ' (cachée)';
-            }
+            $tree[$key]->name .= $this->setVisible($section);
+            $tree[$key]->name .= $this->setRestriction($section);
 
             if (isset($section->children) && count($section->children) > 0)
             {
                 foreach($section->children as $key2=>$child)
                 {
-                    if ($child->uservisible == 0 && !$this->canseehiddensection)
+                    if ($child->uservisible == 0 && !$child->availableinfo && !$this->canseehiddensection)
                     {
                         unset($tree[$key]->children[$key2]);
                         continue;
@@ -256,13 +251,16 @@ class block_summary extends block_base {
                         $tree[$key]->children[$key2]->name = '(Section '.$child->weight.')';
                     }
 
-                    if ($child->visible == 0)
-                    {
-                        $tree[$key]->children[$key2]->name .= ' (cachée)';
-                    }
+                    $tree[$key]->children[$key2]->name .= $this->setVisible($child);
+                    $tree[$key]->children[$key2]->name .= $this->setRestriction($child);
+
                 }
             }
+
+
+
         }
+
 
         $this->content = new stdClass();
 
@@ -280,6 +278,48 @@ class block_summary extends block_base {
             $this->content->text .= html_writer::tag('ul', $li,array('class'=>'editbutton'));
         }
         $this->content->text .= $this->get_js();
+    }
+
+    private function setActive($section){
+        if ($section->visible == 0)
+        {
+            return '<span><i class="fas fa-circle"></i></span>';;
+        }
+    }
+    private function setVisible($section){
+        if ($section->visible == 0)
+        {
+            return '<span><i class="eyeicon ' . get_config('block_summary', 'slasheye') . '"></i></span>';;
+        }
+    }
+    private function setRestriction($section){
+        if($section->visible != 0 && $this->canseehiddensection){
+            $availabilities_infos_json = get_fast_modinfo($section->courseid)->get_section_info($section->section)->availability;
+            if(isset($availabilities_infos_json)){
+                $availabilities_infos = json_decode($availabilities_infos_json);
+                if(isset($availabilities_infos)){
+                    if(count($availabilities_infos->c) > 0 ){
+                        return '<span><i class="lockicon ' . get_config('block_summary', 'lock') . '"></i></span>';
+                    }
+                }
+            }
+        }
+        return "";
+    }
+
+    private function isCompleted($node){
+        global $DB;
+        $module = $DB->get_record('modules',array('name'=>'completionmarker'));
+        return $module && section_is_completed($node->sectionid);
+    }
+
+
+    private function setCompleted($is_completed,$node){
+        if ($is_completed  && has_capability('block/summary:canseecompletion', $this->context))
+        {
+            return '<a class="check-icon-link" title="Vous avez achevé cette étape en cochant la case sur la page correspondante"><i class="fa fa-check"></i></a> ';
+        }
+        return "";
     }
 
     private function generate_content_for_format_modular(){
@@ -300,7 +340,9 @@ class block_summary extends block_base {
 
     private function display_page_structure($node){
     	global $DB, $CFG, $OUTPUT,$COURSE;
-    	
+
+    	$is_section_completed = $this->isCompleted($node);
+
     	$children_content = '';
     	$children_is_current = false;
     	
@@ -319,46 +361,54 @@ class block_summary extends block_base {
     	if(!empty($children_content)){
     		$ch = html_writer::tag('ul', $children_content, array('style' => $display_children));
     	}
-    	
+
     	$class_link = $this->get_class_for_link($node);
     	 
     	$toggleSelector = '';
-    	 
+        $completed = "";
     	if($class_link != null){
-    		$toggleSelector = html_writer::tag('a', '', $class_link);
+            $icon = "<i class='plusicon " . get_config('block_summary', 'plus') . "'></i>";
+    	    if($class_link['class'] == 'summary_arrow arrow_expand'){
+                $icon = "<i class='minusicon " . get_config('block_summary', 'minus') . "'></i>";
+
+            }
+    		$toggleSelector = html_writer::tag('a', $icon, $class_link);
     	}
 
-    	$active_class = ($node->is_current ? array('class' => 'block_summary_current') : null);
-    	
-    	if ($this->canseehiddensection && isset($node->visible) && $node->visible == 0){
-    		if ($node->is_current)
-    		{
-    			$active_class = array('class' => 'block_summary_current_hidden');
-    		}else{
-    			$active_class = array('class' => 'block_summary_hidden');
-    		}
-    	}
-    	
-    	$completed = '';
 
-        $module = $DB->get_record('modules',array('name'=>'completionmarker'));
-    	if ($module && section_is_completed($node->sectionid))
-    	{
-    	    $completed = '<a class="summary-topics-completed" title="Vous avez achevé cette étape en cochant la case sur la page correspondante"><i class="fa fa-check"></i></a> ';
-    	}
-    	
-    	$link = html_writer::tag('a', '<i class="fa fa-caret-right" aria-hidden="true"></i>'.$node->name.$completed, array('href' => $node->page_link->out(false)));
-    	//$link = html_writer::tag('a',$node->name.$completed, array('href' => $node->page_link->out(false)));
+        $active_class = array();
 
-    	$p = html_writer::tag('p', $toggleSelector . $link, $active_class);
-    	 
-    	$name = html_writer::tag('li', $p . $ch);
+
+
+        $currentsection = optional_param('section', 0, PARAM_INT);
+        if($node->is_current || ($currentsection == 0 && $node->section == 1) ){
+            $active_class[] = 'is_active';
+        }else{
+            $completed = $this->setCompleted($is_section_completed,$node);
+        }
+        if($is_section_completed && has_capability('block/summary:canseecompletion', $this->context)){
+            $active_class[] = 'completed';
+        }
+        if(strpos($children_content, 'sub is_active') !== false) $active_class[] = 'child_is_active';
+        if ($this->canseehiddensection && isset($node->visible) && $node->visible == 0) $active_class[] = 'hidden_section';
+
+
+
+
+    	$link = html_writer::tag('a', $node->name.$completed, array('href' => $node->page_link->out(false) ));
+
+    	$p = html_writer::tag('p', $link . $toggleSelector);
+
+
+
+    	$name = html_writer::tag('li', $p . $ch,array('class'=> join(' ',$active_class) , 'onClick' => 'event.stopPropagation(); window.location = "' . $node->page_link->out(false) . '"'));
     	
     	return $name;
     }
     
     public function display_node($node){
         global $DB;
+        $is_section_completed = $this->isCompleted($node);
     	$class_link = $this->get_class_for_link($node);
     	
     	$toggleSelector = '';
@@ -366,30 +416,27 @@ class block_summary extends block_base {
     	if($class_link != null){
 			$toggleSelector = html_writer::tag('a', '', $class_link);
     	}
+
     	
-    	$completed = '';
-        $module = $DB->get_record('modules',array('name'=>'completionmarker'));
-    	if ($module && section_is_completed($node->sectionid))
-    	{
-    	    $completed = '<a class="summary-topics-completed" title="Vous avez achevé cette étape en cochant la case sur la page correspondante"><i class="fa fa-check"></i></a> ';
-    	}
-    	
-    	$link = html_writer::tag('a', '<i class="fa fa-caret-right" aria-hidden="true"></i>'.$node->name, array('href' => $node->page_link->out(false)));
-    	
-    	$active_class = ($node->is_current ? array('class' => 'is_active_block_summary') : null);
-    	
-    	if ($this->canseehiddensection && isset($node->visible) && $node->visible == 0){
-    		if ($node->is_current)
-    		{
-    			$active_class = array('class' => 'block_summary_current_hidden');
-    		}else{
-    			$active_class = array('class' => 'block_summary_hidden');
-    		}
-    	}
-    	
-    	$p = html_writer::tag('p', $toggleSelector . $link.$completed, $active_class);
-    	
-    	return html_writer::tag('li', $p);
+    	$link = html_writer::tag('a', $node->name, array('href' => $node->page_link->out(false)));
+
+        $active_class = array('sub');
+        $completed = "";
+        if($node->is_current){
+            $active_class[] = 'is_active';
+        }else{
+            $completed = $this->setCompleted($is_section_completed,$node);
+        }
+
+        if($is_section_completed && has_capability('block/summary:canseecompletion', $this->context)){
+            $active_class[] = 'completed';
+        }
+
+        if ($this->canseehiddensection && isset($node->visible) && $node->visible == 0) $active_class[] = 'hidden_section';
+
+    	$p = html_writer::tag('p', $toggleSelector . $link.$completed);
+
+        return html_writer::tag('li', $p , array('class' => join(' ',$active_class), 'onClick' => 'event.stopPropagation(); window.location = "' . $node->page_link->out(false) . '"'));
     }
     
     public function get_class_for_link($node, $force_to_expand = false){
@@ -432,7 +479,8 @@ class block_summary extends block_base {
     	return "
     		<script type='text/javascript'>
 	    		$(function(){
-	    			$('.summary_arrow').click(function(){
+	    			$('.summary_arrow').click(function(e){
+	    			    e.stopPropagation();
     					if(!$(this).hasClass('arrow_active')){
     						$(this).toggleClass(function(){
     							if($(this).hasClass('arrow_expand')){
@@ -444,6 +492,8 @@ class block_summary extends block_base {
     							}
     						});
     					}
+    					$(this).find('i').toggleClass('minusicon " . get_config('block_summary', 'minus') . "');
+    					$(this).find('i').toggleClass('plusicon " . get_config('block_summary', 'plus') . "');
     					$(this).parent().next('ul').toggle();
     				});
 	    			
@@ -498,6 +548,10 @@ class block_summary extends block_base {
     	global $DB;
 
     	return $DB->get_records('format_flexpage_page', array('courseid' => $courseid, 'display' => 2), 'parentid, weight');
+    }
+
+    function has_config() {
+        return true;
     }
     
 }

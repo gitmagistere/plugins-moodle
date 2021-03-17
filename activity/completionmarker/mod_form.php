@@ -32,8 +32,10 @@ class mod_completionmarker_mod_form extends moodleform_mod {
         global $CFG, $DB;
         $mform = $this->_form;
 
-        $mform->addElement('hidden', 'name','completionmarker_mod');
+        $mform->addElement('text', 'name',get_string('name', 'completionmarker'));
+        $mform->addHelpButton('name', 'name', 'completionmarker');
         $mform->setType('name', PARAM_TEXT);
+        $mform->addRule('name', get_string('error'), 'required');
 
         $this->standard_coursemodule_elements();
 
@@ -43,8 +45,10 @@ class mod_completionmarker_mod_form extends moodleform_mod {
     function definition_after_data()
     {
         parent::definition_after_data();
-
         $this->_form->setDefault('completion', 1);
+        if (!$this->get_instance()) {
+            $this->_form->setDefault('name', get_section_name($this->_course, $this->_section));
+        }
     }
 
     function validation($data, $files) {

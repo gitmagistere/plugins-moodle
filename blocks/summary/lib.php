@@ -119,7 +119,8 @@ WHERE cs.course = '.$courseid.' AND cs.section > 0  ORDER BY bs.parentid,cs.sect
 		$sec[$key]->courseid = $section->courseid;
 		$sec[$key]->name = $section->name;
 		$sec[$key]->visible = $section->visible;
-		$sec[$key]->uservisible = $coursesections[$section->section]->uservisible;
+        $sec[$key]->uservisible = $coursesections[$section->section]->uservisible;
+        $sec[$key]->availableinfo = $coursesections[$section->section]->availableinfo;
 		$sec[$key]->weight = $section->section;
 	}
 

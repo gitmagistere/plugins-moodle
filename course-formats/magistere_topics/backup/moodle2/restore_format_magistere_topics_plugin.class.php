@@ -89,6 +89,11 @@ class restore_format_magistere_topics_plugin extends restore_format_plugin {
      */
     public function after_restore_course() {
         global $DB;
+        $coursedisplay = $DB->get_record('course_format_options', array('courseid' => $this->step->get_task()->get_courseid(), 'name' => "coursedisplay"));
+        if($coursedisplay && $coursedisplay->value == 0 ){
+            $coursedisplay->value = 1;
+            $DB->update_record('course_format_options', $coursedisplay);
+        }
 
         if (!$this->need_restore_numsections()) {
             // Backup file was made in Moodle 3.3 or later, we don't need to process 'numsecitons'.

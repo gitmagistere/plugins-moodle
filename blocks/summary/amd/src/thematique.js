@@ -3,7 +3,7 @@ define(['block_summary/nestable', 'block_summary/tooltipster', 'jqueryui'], func
 
     function init(newsectionstartid, coursenextweight, dragbutton, buttonspacer, buttons) {
         var lastsectionid = newsectionstartid;
-        var lastpageid = '.(' + coursenextweight + ').';
+        var lastpageid = coursenextweight;
         var is_form_changing = false;
         var deleted_sections = [];
 
@@ -52,7 +52,7 @@ define(['block_summary/nestable', 'block_summary/tooltipster', 'jqueryui'], func
 
         $("#addsection").on("click", function(e) {
             e.preventDefault();
-            $("#dd>ol").append('<li class="dd-item" data-id="' + lastsectionid + '"><div class="dd-itemdiv"><div class="dd-div">' + dragbutton + '</div>' + buttonspacer + '<div class="dd-handle">Nouvelle section ' + lastpageid + '</div><div class="dd-buttonsblock">' + buttons + '</div></div></li>');
+            $("#dd>ol").append('<li class="dd-item" data-id="' + lastsectionid + '"><div class="dd-itemdiv"><div class="dd-div">' + dragbutton + '</div>' + buttonspacer + '<div class="dd-handle">Nouvelle section (' + lastpageid + ')</div><div class="dd-buttonsblock">' + buttons + '</div></div></li>');
             lastsectionid = lastsectionid + 1;
             lastpageid = lastpageid + 1;
 

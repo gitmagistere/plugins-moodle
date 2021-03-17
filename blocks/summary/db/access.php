@@ -41,6 +41,17 @@ $capabilities = array(
                 'editingteacher' => CAP_ALLOW,
                 'manager' => CAP_ALLOW
             ),
-        )
+		),
+		'block/summary:canseecompletion' => array(
+            'riskbitmask' => RISK_XSS,
+            'captype' => 'read',
+            'contextlevel' => CONTEXT_BLOCK,
+            'archetypes' => array(
+				'student' => CAP_ALLOW,
+				'coursecreator' => CAP_PREVENT,
+                'editingteacher' => CAP_PREVENT,
+                'manager' => CAP_PREVENT,
+            ),
+		),
 	
 );

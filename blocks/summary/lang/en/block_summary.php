@@ -44,3 +44,16 @@ $string['summary:addinstance'] = 'Autoriser l\'ajout du bloc Sommaire';
 $string['summary:canseehiddensections'] = 'Autoriser la visibilité des sections cachées';
 $string['summary:canseesectionzero'] = 'Autoriser la visibilité de la section zéro';
 $string['summary:managepages'] = 'Autoriser la gestion des sections / pages';
+$string['summary:canseecompletion'] = 'Autoriser la visibilité des indicateurs d\'achèvement';
+
+$string['slasheye'] = 'Slash Eye icon';
+$string['slasheyedesc'] = 'Font awesome libelle for the slash eye icon';
+
+$string['plus'] = 'Plus icon';
+$string['plusdesc'] = 'Font awesome libelle for the plus icon';
+
+$string['minus'] = 'Minus icon';
+$string['minusdesc'] = 'Font awesome libelle for the minus icon';
+
+$string['lock'] = 'Lock icon';
+$string['lockdesc'] = 'Font awesome libelle for the lock icon';

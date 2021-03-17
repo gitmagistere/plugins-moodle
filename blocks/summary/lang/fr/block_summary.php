@@ -44,3 +44,16 @@ $string['summary:addinstance'] = 'Autoriser l\'ajout du bloc Sommaire';
 $string['summary:canseehiddensections'] = 'Autoriser la visibilité des sections cachées';
 $string['summary:canseesectionzero'] = 'Autoriser la visibilité de la section zéro';
 $string['summary:managepages'] = 'Autoriser la gestion des sections / pages';
+$string['summary:canseecompletion'] = 'Autoriser la visibilité des indicateurs d\'achèvement';
+
+$string['slasheye'] = 'Icône \'oeil barré\'';
+$string['slasheyedesc'] = 'Nom de l\'icone FontAwesome correspondant à l\'oeuil barré';
+
+$string['plus'] = 'Icône \'plus\'';
+$string['plusdesc'] = 'Nom de l\'icone FontAwesome correspondant au plus';
+
+$string['minus'] = 'Icône \'moins\'';
+$string['minusdesc'] = 'Nom de l\'icone FontAwesome correspondant au moins';
+
+$string['lock'] =  'Icône \'cadenas\'';
+$string['lockdesc'] = 'Nom de l\'icone FontAwesome correspondant au cadenas';

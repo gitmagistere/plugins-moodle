@@ -243,7 +243,7 @@ function educationallabel_supports($feature) {
  */
 function educationallabel_dndupload_register() {
     $strdnd = get_string('dnduploadeducationallabel', 'mod_educationallabel');
-    if (get_config('label', 'dndmedia')) {
+    if (get_config('educationallabel', 'dndmedia')) {
         $mediaextensions = file_get_typegroup('extension', 'web_image');
         $files = array();
         foreach ($mediaextensions as $extn) {
