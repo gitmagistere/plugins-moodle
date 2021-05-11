@@ -1,0 +1,130 @@
+
+#page-mod-wordcloud-view .wc_editor_word {
+	display: none;
+}
+
+#page-mod-wordcloud-view .wc_empty {
+	display: none;
+	width:100%;
+	text-align:center;
+	font-size:1.5rem;
+	font-weight:bold;
+	display: block;
+    position: absolute;
+    top:50%;
+    transform: translate(0, -50%);
+}
+
+#page-mod-wordcloud-view .wordcloudcontainer {
+	position: relative;
+}
+
+#page-mod-wordcloud-view .wordcloudcontainer svg text {
+    cursor: pointer;
+}
+
+#page-mod-wordcloud-view .wc_name {
+	overflow: hidden;
+	word-wrap: normal;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+#page-mod-wordcloud-view .wc_description_header,
+#page-mod-wordcloud-view .wc_instructions_header {
+	background-color:#0095db;
+	color: #ffffff;
+	padding-left: 5px;
+}
+
+#page-mod-wordcloud-view .wc_description,
+#page-mod-wordcloud-view .wc_instructions {
+	overflow: hidden;
+	word-wrap: normal;
+	padding-left: 10px;
+}
+
+#page-mod-wordcloud-view .wordcloudcontainer.locked svg {
+	opacity: 0.5;
+}
+
+#page-mod-wordcloud-view .wordcloudcontainer.locked svg text {
+	cursor: default;
+}
+
+#page-mod-wordcloud-view .wc_groups {
+	text-align: center;
+	margin: 10px;
+}
+
+#page-mod-wordcloud-view .wc_groupselector {
+	margin-left:25px;
+	padding: .375rem .75rem;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid #d9d9d9;
+}
+
+#page-mod-wordcloud-view .wc_participation {
+	text-align: center;
+}
+
+#page-mod-wordcloud-view #wcform {
+	padding: 25px 0;
+}
+
+#page-mod-wordcloud-view .wc_addword_header,
+#page-mod-wordcloud-view .wc_editword_header {
+	font-size:1.3rem;
+	font-weight: bold;
+}
+
+#page-mod-wordcloud-view .wc_formrow {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#page-mod-wordcloud-view .wc_formrow input {
+	padding: .375rem .75rem;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    border: 1px solid #d9d9d9;
+}
+#page-mod-wordcloud-view .wc_formrow button {
+	margin-left:25px;
+	padding: .375rem .75rem;
+    font-size: .9375rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+#page-mod-wordcloud-view #wc_exports {
+	display: flex;
+	justify-content: center;
+}
+
+#page-mod-wordcloud-view #wc_exports button {
+	padding: .375rem .75rem;
+	margin: 0 5px;
+}
+
+#page-mod-wordcloud-view .wc_users ul {
+	list-style-type: none;
+	padding-left:0px;
+}
+
+#page-mod-wordcloud-view .wc_users ul li {
+	padding-bottom:5px;
+}
+
+#page-mod-wordcloud-view .wc_formrow .wc_updateword {
+	margin-left: 15px;
+}
+
+#page-mod-wordcloud-view .wc_formrow .wc_addword {
+	margin-left: 0px;
+}
