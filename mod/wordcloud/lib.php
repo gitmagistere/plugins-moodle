@@ -311,3 +311,75 @@ function process_wordcloud_submit($wordcloud,$g=0) {
     
     return false;
 }
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+// Course reset API                                                           //
+////////////////////////////////////////////////////////////////////////////////
+
+/**
+ * Extends the course reset form with wordcloud specific settings.
+ *
+ * @param MoodleQuickForm $mform
+ */
+function wordcloud_reset_course_form_definition($mform) {
+    
+    $mform->addElement('header', 'wordcloudheader', get_string('modulenameplural', 'mod_wordcloud'));
+    
+    $mform->addElement('advcheckbox', 'reset_wordcloud_submissions', get_string('resetsubmissions', 'mod_wordcloud'));
+    $mform->addHelpButton('reset_wordcloud_submissions', 'resetsubmissions', 'mod_wordcloud');
+    
+}
+
+/**
+ * Provides default values for the wordcloud settings in the course reset form.
+ *
+ * @param stdClass $course The course to be reset.
+ */
+function wordcloud_reset_course_form_defaults(stdClass $course) {
+    
+    $defaults = array(
+        'reset_wordcloud_submissions'    => 1
+    );
+    
+    return $defaults;
+}
+
+/**
+ * Performs the reset of all wordcloud instances in the course.
+ *
+ * @param stdClass $data The actual course reset settings.
+ * @return array List of results, each being array[(string)component, (string)item, (string)error]
+ */
+function wordcloud_reset_userdata(stdClass $data) {
+    global $CFG, $DB;
+    
+    require_once($CFG->dirroot.'/mod/wordcloud/wordcloud.php');
+    
+    $status = array();
+    
+    if (empty($data->reset_wordcloud_submissions)) {
+        return $status;
+    }
+    
+    $wordclouds = $DB->get_records('wordcloud', array('course' => $data->courseid));
+    
+    if (empty($wordclouds)) {
+        return $status;
+    }
+    $course = $DB->get_record('course', array('id' => $data->courseid), '*', MUST_EXIST);
+    
+    foreach ($wordclouds as $wordcloud) {
+        $wc = new wordcloud($wordcloud->id);
+        $wc->reset_cloud();
+        
+        $status[] = array(
+            'component' => get_string('modulenameplural', 'wordcloud'),
+            'item' => get_string('resetsubmissions', 'mod_wordcloud').' ('.$wordcloud->id.')',
+            'error' => false,
+        );
+    }
+    
+    return $status;
+}

@@ -67,8 +67,9 @@ class mod_wordcloud_renderer extends plugin_renderer_base {
     <div class="wc_editword_header">'.get_string('updateaword','mod_wordcloud').'</div>
     <div class="row wc_formrow">
         <div class="col-md-3">'.get_string('word','mod_wordcloud').'</div>
-        <div class="col-md-3">
-            <input type="text" maxlength="'.get_config('wordcloud', 'wordmaxlenght').'" name="wceditword" class="form-control"/>
+        <div class="col-md-9">
+            <input type="text" name="wceditword" class="form-control"/>
+            <span id="updateword_fusion_warn">Ce mot existe par ailleurs. Les propositions seront fusionnées. Le poids prévu est indiqué ci-dessous.</span>
         </div>
         <div class="col-md-6"></div>
     </div>

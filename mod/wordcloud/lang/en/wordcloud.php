@@ -32,6 +32,9 @@ $string['pluginname'] = 'WordCloud';
 
 $string['pluginconfig'] = 'Wordcloud configuration';
 
+$string['resetsubmissions'] = 'Reset all wordclouds submissions';
+$string['resetsubmissions_help'] = 'This will remove every words submitted in all the wordcloud of this course';
+
 $string['wordmaxlenght'] = 'Word max lenght';
 $string['wordmaxlenghtsetting'] = 'Global limit for the words lenght';
 
@@ -87,6 +90,7 @@ $string['word1isnotvalid'] = 'The word is not valid';
 $string['wordistoolong'] = 'The word is too long';
 
 $string['oldwordnotfound'] = 'Old word not found';
+$string['newwordisthesame'] = 'The new word is the same as the old one, we can\'t rename it';
 
 $string['wordweight'] = 'Word weight';
 $string['addword'] = 'Add word';

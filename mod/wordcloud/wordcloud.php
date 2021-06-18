@@ -35,6 +35,7 @@ class wordcloud {
     public const ERROR_WORD_TOO_LONG = -5;
     public const ERROR_WORD_ALREADY_EXIST = -6;
     public const ERROR_NO_WORD_FOUND = -7;
+    public const ERROR_NEW_WORD_IS_THE_SAME = -8;
     
     /***
      * 
@@ -103,7 +104,11 @@ class wordcloud {
     function rename_word($oldword, $newword, $groupid = 0) {
         global $DB;
         
-	$newword = strtolower(trim($newword));
+	    $newword = strtolower(trim($newword));
+	       
+	    if ($oldword == $newword) {
+	        return self::ERROR_NEW_WORD_IS_THE_SAME;
+	    }
 
         $words = $DB->get_records_sql('SELECT id, userid, word FROM {wordcloud_words} ww WHERE ww.`word` LIKE ? COLLATE utf8_bin AND ww.wcid = ? AND ww.groupid = ?', array($oldword,$this->activity->id,$groupid));
         
@@ -116,12 +121,53 @@ class wordcloud {
         }
         
         foreach ($words AS $word) {
-            $word->word = $newword;
-            $DB->update_record('wordcloud_words', $word);
+            $new_words = $DB->get_records_sql('SELECT id, word FROM {wordcloud_words} ww WHERE ww.`word` LIKE ? COLLATE utf8_bin AND ww.wcid = ? AND ww.groupid = ? AND userid = ?', array($newword,$this->activity->id,$groupid, $word->userid));
+            
+            if (count($new_words)>0){
+                $DB->delete_records('wordcloud_words',array('id'=>$word->id));
+            }else{
+                $word->word = $newword;
+                $DB->update_record('wordcloud_words', $word);
+            }
         }
         
         $this->update_modifiedtime();
         return true;
+    }
+    
+    function simulate_rename_word($oldword, $newword, $groupid = 0) {
+        global $DB;
+        
+        $words = $DB->get_records_sql('SELECT id, userid, word FROM {wordcloud_words} ww WHERE ww.`word` LIKE ? COLLATE utf8_bin AND ww.wcid = ? AND ww.groupid = ?', array($oldword,$this->activity->id,$groupid));
+        if ($words === false){
+            return self::ERROR_NO_WORD_FOUND;
+        }
+        
+        if (count($words) == 0) {
+            return self::ERROR_NO_WORD_FOUND;
+        }
+        
+        $current_words = $DB->get_records_sql('SELECT id, userid, word FROM {wordcloud_words} ww WHERE ww.`word` LIKE ? COLLATE utf8_bin AND ww.wcid = ? AND ww.groupid = ?', array($newword,$this->activity->id,$groupid));
+        $oldweight = count($words);
+        $newweight = count($current_words);
+        $fusion = count($current_words)>0;
+        $renamed = 0;
+        $deleted = 0;
+        if ($newweight > 0) {
+            foreach ($words AS $word) {
+                foreach($current_words AS $current_word) {
+                    if ($word->userid == $current_word->userid){
+                        $deleted++;
+                        continue 2;
+                    }
+                }
+                $renamed++;
+            }
+        }else{
+            $newweight = $oldweight;
+        }
+        $newweight += $renamed;
+        return array($fusion,$newweight,$renamed,$deleted);
     }
     
     function get_cloud_words($groupid=0) {
@@ -331,6 +377,11 @@ GROUP BY ww.userid', array($this->activity->id,$word,$groupid));
             return $available_groups;
         }
         return array();
+    }
+    
+    function reset_cloud(){
+        global $DB;
+        $DB->delete_records('wordcloud_words', array('wcid'=>$this->activity->id));
     }
     
     

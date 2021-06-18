@@ -32,6 +32,9 @@ $string['pluginname'] = 'Nuage de mots';
 
 $string['pluginconfig'] = 'Configuration du Nuage de mots';
 
+$string['resetsubmissions'] = 'Supprimer toutes les propositions';
+$string['resetsubmissions_help'] = 'L\'ensemble des propositions des Nuages de mots de ce parcours seront supprimées';
+
 $string['wordmaxlenght'] = 'Longueur maximale des mots';
 $string['wordmaxlenghtsetting'] = 'Limite globale de la longueur maximale des mots';
 
@@ -84,6 +87,7 @@ $string['wordisnotvalid'] = 'Le mot n\'est pas valide';
 $string['wordistoolong'] = 'Le mot est trop long';
 
 $string['oldwordnotfound'] = 'Ancien mot introuvable';
+$string['newwordisthesame'] = 'Le nouveau mot est le même que l\'ancien, impossible de le renomer';
 
 $string['wordweight'] = 'Poids du mot';
 $string['addword'] = 'Ajouter un mot';

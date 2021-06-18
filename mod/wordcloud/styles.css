@@ -75,10 +75,28 @@
 	padding: 25px 0;
 }
 
+#page-mod-wordcloud-view #wcform .fitem .col-md-3 {
+	text-align: right;
+}
+
+#page-mod-wordcloud-view #wcform .fitem .col-md-3 a i.icon,
+#page-mod-wordcloud-view #wcform .fitem .col-md-3 abbr i.icon {
+	margin-right: 0;
+}
+
+#page-mod-wordcloud-view #wcform .fitem .col-md-3 .col-form-label {
+	font-weight: 700;
+}
+
 #page-mod-wordcloud-view .wc_addword_header,
 #page-mod-wordcloud-view .wc_editword_header {
 	font-size:1.3rem;
 	font-weight: bold;
+}
+
+#page-mod-wordcloud-view  #updateword_fusion_warn {
+	display:none;
+	color:#d43f3a;
 }
 
 #page-mod-wordcloud-view .wc_formrow {

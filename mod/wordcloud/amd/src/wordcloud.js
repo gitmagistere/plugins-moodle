@@ -35,15 +35,7 @@ define(['jquery','core/str'], function($,str) {
 		apiurl = api_url;
 		
 		wordclouds[cmid] = new wordCloud(cmid,selector,$(selector).width(),$(selector).width()*0.56,editor);
-		
-		//wordclouds[cmid].currentgroupid = 0;
-		//wordclouds[cmid].updatedelay = mindelay;
-		
-		//wordclouds[cmid].update_wordcloud();
-
-		
 	}
-	
 	
 	class wordCloud {
 		
@@ -61,6 +53,7 @@ define(['jquery','core/str'], function($,str) {
 			this.isediting = false;
 			this.editingword = '';
 			
+			this.simtimer;
 			this.resizetimer;
 			this.updatetimer;
 			this.updatedelay = mindelay;
@@ -71,7 +64,7 @@ define(['jquery','core/str'], function($,str) {
 			this.wcwidth = $(this.selector).parents('#region-main-box').width();
 			this.borderwidth = this.wcwidth - $(this.selector).width();
 			
-		    
+		    this.weight = 0;
 			this.currentgroupid = -1;
 		    
 		  //Construct the word cloud's SVG element
@@ -148,6 +141,15 @@ define(['jquery','core/str'], function($,str) {
 				    }
 				}).bind(this));
 		    	
+		    	this.parent.on('input','input[name=wceditword]',(function(e){
+					if (this.isediting) {
+		    			if (this.simtimer != undefined){
+							clearTimeout(this.resizetimer);
+						}
+						this.simtimer = setTimeout((this.simUpdateWord).bind(this),500);
+		    		}
+				}).bind(this));
+		    	
 		    	$(this.parent).on('click', '.wc_updateword', (function(event){
 		    		if (this.isediting) {
 		    			this.updateWord();
@@ -160,13 +162,12 @@ define(['jquery','core/str'], function($,str) {
 		    			this.closeWordEdit();
 		    		}
 		    	}).bind(this));
-		    	
+
 		    	this.parent.on('click', '.wc_closeedit', (function(event){
 		    		if (this.isediting) {
 		    			this.closeWordEdit();
 		    		}
 		    	}).bind(this));
-		    	
 		    	
 		    }
 		}
@@ -271,7 +272,7 @@ define(['jquery','core/str'], function($,str) {
 	    	if (this.displaymod == mod){
 				if (mod == 'c') {
 					if (this.editing) {
-						$('.wc_tools').show();
+						//$('.wc_tools').show();
 					}else{
 						$('.wc_tools').hide();
 					}
@@ -446,6 +447,7 @@ define(['jquery','core/str'], function($,str) {
 			this.isediting = true;
 			this.editingword = word;
 			$(this.selector).addClass('locked');
+			$("#updateword_fusion_warn").hide();
 			this.parent.find('.wc_groupselector').prop('disabled', true);
 			
 			$.ajax({
@@ -455,7 +457,7 @@ define(['jquery','core/str'], function($,str) {
 	            dataType: 'json',
 	            success: (function (response) {
 	            	if (response.error==false) {
-	            		
+	            		this.weight = response.weight;
 	            		this.parent.find('input[name=wceditword]').val(response.word);
 	            		this.parent.find('.wc_weight span').text(response.weight);
 	            		
@@ -466,8 +468,10 @@ define(['jquery','core/str'], function($,str) {
 	            			ul.append('<li>'+val+'</li>');
 	            		});
 	            		
-	            		this.parent.find('.wc_tools').slideUp(500);
-	            		this.parent.find('.wc_editor_word').slideDown(500);
+	            		if ( this.parent.find('.wc_editor_word').is(":hidden") ) {
+	            			this.parent.find('.wc_tools').slideUp(500);
+	            			this.parent.find('.wc_editor_word').slideDown(500);
+	            		}
 	            		
 	            	}else{
 	            	}
@@ -491,7 +495,6 @@ define(['jquery','core/str'], function($,str) {
     		$(this.selector).removeClass('locked');
     		this.parent.find('.wc_groupselector').prop('disabled', false);
 		}
-
 		
 		updateWord() {
 			var newword = this.parent.find('input[name=wceditword]').val();
@@ -506,13 +509,44 @@ define(['jquery','core/str'], function($,str) {
 	            		
 	            		this.lastupdate=0;
 	            		this.update_wordcloud(true);
-	            		this.loadWordEdit(newword);
+	            		this.closeWordEdit();
 	            	}else{
 	            	}
 	            }).bind(this),
 	            error: function (error) {
 	            }
 	        });
+		}
+		
+		simUpdateWord() {
+			var newword = this.parent.find('input[name=wceditword]').val();
+			
+			if (this.editingword == newword) {
+				$("#updateword_fusion_warn").hide();
+				this.parent.find('.wc_weight span').text(this.weight);
+			}else{
+				$.ajax({
+		            type: 'POST',
+		            url: apiurl,
+		            data: JSON.stringify({"cmid":this.cmid, "action":"simupdateword", "word":this.editingword, "newword":newword, "groupid":this.currentgroupid}),
+		            dataType: 'json',
+		            success: (function (response) {
+		            	if (response.error==false) {
+		            		console.log(response.subs);
+		            		if (response.fusion){
+		            			$("#updateword_fusion_warn").show();
+		            			this.parent.find('.wc_weight span').text(""+response.subs+" (valeur actuelle : "+this.weight+")");
+		            		}else{
+		            			$("#updateword_fusion_warn").hide();
+		            			this.parent.find('.wc_weight span').text(this.weight);
+		            		}
+		            	}else{
+		            	}
+		            }).bind(this),
+		            error: function (error) {
+		            }
+		        });
+			}
 		}
 		
 		removeWord() {

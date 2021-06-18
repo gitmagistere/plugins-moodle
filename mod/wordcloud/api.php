@@ -155,10 +155,35 @@ else if ( isset($params->action) && isset($params->groupid) && isset($params->wo
     if($result===true){
         $msg = get_string('wordupdated','wordcloud');
         $error = 'false';
+    }else if($result==wordcloud::ERROR_NEW_WORD_IS_THE_SAME){
+        $msg = get_string('newwordisthesame','wordcloud');
     }else if($result==wordcloud::ERROR_NO_WORD_FOUND){
         $msg = get_string('oldwordnotfound','wordcloud');
     }else{
         $msg = get_string('wordisnotvalid','wordcloud');
+    }
+    die('{"error":'.$error.',"msg":"'.$msg.'"}');
+    
+}
+
+else if ( isset($params->action) && isset($params->groupid) && isset($params->word) && isset($params->newword) &&
+    $params->action == 'simupdateword' && $params->groupid >= 0 && strlen($params->word) && strlen($params->newword) )
+{
+    if (!has_capability('mod/wordcloud:manageword', $context)) {
+        die('{"error":true,"msg":"Access denied"}');
+    }
+    
+    list($fusion,$newweight) = $wordcloud->simulate_rename_word($params->word,$params->newword,$params->groupid);
+    
+    $msg = '';
+    $error = 'true';
+    if($result===true){
+        $msg = get_string('wordupdated','wordcloud');
+        $error = 'false';
+    }else if($result==wordcloud::ERROR_NO_WORD_FOUND){
+        $msg = get_string('oldwordnotfound','wordcloud');
+    }else{
+        die('{"error":false,"subs":'.$newweight.',"fusion":'.($fusion?'true':'false').'}');
     }
     die('{"error":'.$error.',"msg":"'.$msg.'"}');
     
